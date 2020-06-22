@@ -1,0 +1,144 @@
+import React, {createElement} from 'react'
+import styles from './Schema.module.css'
+import {TypeKind} from "graphql";
+import ObjectType from "../types/object/Object";
+import Scalar from "../types/scalar/Scalar";
+import Union from "../types/union/Union";
+import Enum from "../types/enum/Enum";
+import Input from "../types/input/Input";
+
+export default class Schema extends React.Component{
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            control: false,
+            pattern: '',
+        }
+
+        this.state[TypeKind.OBJECT] = true;
+        this.state[TypeKind.SCALAR] = true;
+        this.state[TypeKind.INTERFACE] = true;
+        this.state[TypeKind.UNION] = true;
+        this.state[TypeKind.ENUM] = true;
+        this.state[TypeKind.INPUT_OBJECT] = true;
+
+        this.state['introspection'] = false;
+
+        this.addEventListeners();
+
+        this.types = {}
+        this.types[TypeKind.OBJECT] = ObjectType;
+        this.types[TypeKind.SCALAR] = Scalar;
+        this.types[TypeKind.INTERFACE] = ObjectType;
+        this.types[TypeKind.UNION] = Union;
+        this.types[TypeKind.ENUM] = Enum;
+        this.types[TypeKind.INPUT_OBJECT] = Input;
+    }
+
+    addEventListeners(){
+        document.addEventListener('keydown', event => {
+            if(event.key === "Control"){
+                if(this.state.control === false){
+                    this.setState({control: true});
+                }
+            }
+        });
+
+        document.addEventListener('keyup', event => {
+            if(event.key === 'Control'){
+                this.setState({control: false});
+            }
+        });
+    }
+
+    render(){
+        const types = this.props.model.types
+            .filter(this.filter)
+            .sort((type1, type2) => -type1.kind.localeCompare(type2.kind))
+            .map(type => createElement(this.types[type.kind],{
+            model: type,
+            key: type.name,
+            control: this.state.control,
+            pattern: this.state.pattern,
+        }, null));
+
+        return (<div className={styles.text + " " + styles.container} >
+                    <input type={'text'} onChange={this.searchInputChangeHandler} value={this.state.pattern} placeholder={'Search'}/>
+                    <div>
+                        <div>
+                            <input type={'checkbox'}
+                                   onChange={e => this.handleCheck(e, "introspection")}/> introspection types
+                        </div>
+                        <div>
+                            <input type={'checkbox'}
+                                   onChange={e => this.handleCheck(e, TypeKind.SCALAR)}
+                                   checked={this.state[TypeKind.SCALAR]}/> scalars
+                        </div>
+                        <div>
+                            <input type={'checkbox'}
+                                   onChange={e => this.handleCheck(e, TypeKind.ENUM)}
+                                   checked={this.state[TypeKind.ENUM]}/> enums
+                        </div>
+                        <div>
+                            <input type={'checkbox'}
+                                   onChange={e => this.handleCheck(e, TypeKind.OBJECT)}
+                                   checked={this.state[TypeKind.OBJECT]}/> objects
+                        </div>
+                        <div>
+                            <input type={'checkbox'}
+                                   onChange={e => this.handleCheck(e, TypeKind.UNION)}
+                                   checked={this.state[TypeKind.UNION]}/> unions
+                        </div>
+                        <div>
+                            <input type={'checkbox'}
+                                   onChange={e => this.handleCheck(e, TypeKind.INTERFACE)}
+                                   checked={this.state[TypeKind.INTERFACE]}/> interfaces
+                        </div>
+                        <div>
+                            <input type={'checkbox'}
+                                   onChange={e => this.handleCheck(e, TypeKind.INPUT_OBJECT)}
+                                   checked={this.state[TypeKind.INPUT_OBJECT]}/> inputs
+                        </div>
+                    </div>
+                    {types}
+                </div>);
+    }
+
+    searchInputChangeHandler = e => {
+        if(/^[a-z_]+$/i.test(e.target.value) || e.target.value === ''){
+            this.setState({pattern: e.target.value});
+        }
+
+    }
+
+    handleCheck(e, typeKind){
+        this.setState({[typeKind] : e.target.checked});
+    }
+
+    filter = type => {
+        let ans = true;
+        if(!this.state['introspection']){
+           ans = type.name.substr(0,2) !== '__';
+        }
+
+        ans = ans && this.filterCheck(type, TypeKind.ENUM);
+        ans = ans && this.filterCheck(type, TypeKind.SCALAR);
+        ans = ans && this.filterCheck(type, TypeKind.UNION);
+        ans = ans && this.filterCheck(type, TypeKind.INTERFACE);
+        ans = ans && this.filterCheck(type, TypeKind.INPUT_OBJECT);
+        ans = ans && this.filterCheck(type, TypeKind.OBJECT);
+
+        return ans;
+    }
+
+    filterCheck(type, kind){
+        if(!this.state[kind]){
+            return type.kind !== kind;
+        }
+
+        return true;
+    }
+
+}

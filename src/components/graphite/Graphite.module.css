@@ -1,0 +1,57 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    user-select: none;
+
+    overflow: hidden;
+}
+
+.ideContainer{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.schemaContainer{
+    min-width: 300px;
+
+    flex-grow: 1;
+}
+
+.dragger{
+    width: 20px;
+    min-width: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.dragger:hover{
+    cursor: ew-resize;
+}
+
+.draggerVisiblePart{
+    height: 100%;
+    width: 1px;
+    background: black;
+}
+
+.addressContainer{
+    height: 5%;
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.queryContainer{
+    height: 95%;
+    box-sizing: border-box;
+    width: 100%;
+}

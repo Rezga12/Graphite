@@ -1,0 +1,13 @@
+.underline{
+    color: green;
+}
+
+.underline:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.plain{
+    color: green;
+    cursor: text;
+}

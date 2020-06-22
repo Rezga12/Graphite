@@ -1,0 +1,30 @@
+.tab{
+    padding-left: 2em;
+}
+
+.container{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    font-family: Consolas, monaco, monospace;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    width: 100%;
+
+    white-space: nowrap;
+}
+
+.marker{
+    min-height: 1px;
+    background: red;
+}
+
+.virtualPad{
+    background: #911313;
+    width: 100%;
+}

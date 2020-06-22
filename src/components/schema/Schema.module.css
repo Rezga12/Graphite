@@ -1,0 +1,10 @@
+.text{
+    color: #282c34;
+}
+
+.container{
+    overflow: scroll;
+    height: 100%;
+    /*font-family: 'Source Code Pro', monospace;*/
+    font-family: Consolas, monaco, monospace;
+}

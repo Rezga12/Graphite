@@ -1,0 +1,41 @@
+.container{
+    background: #cbc8c7;
+    height: 100%;
+
+    display: flex;
+
+    overflow: hidden;
+}
+
+.queryContainer{
+    min-width: 300px;
+}
+
+.handle{
+    width: 12px;
+    min-width: 12px;
+    background: #282c34;
+
+    display: flex;
+    justify-content: center;
+
+    cursor: e-resize;
+}
+
+.handleVision{
+    background: #397a9d;
+    box-shadow: 2px 2px 3px #000000;
+    width: 2px;
+    height: 100%;
+}
+
+.resultContainer{
+    box-sizing: border-box;
+
+    min-width: 300px;
+
+    height: 100%;
+
+    background: #282c34;
+
+}

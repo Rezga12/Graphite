@@ -1,0 +1,14 @@
+.type{
+    color: #080896;
+    font-style: italic;
+}
+
+.value{
+    margin-left: 30px;
+    color: #ac2761;
+}
+
+.container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
