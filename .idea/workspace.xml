@@ -2,59 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20c9d6bf-fe8e-4775-90d7-a60b40af80f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CodeColorScheme.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/JsonColorScheme.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Public.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rolling-2s-200px.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/field/Field.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/field/Field.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/graphite/Graphite.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/graphite/Graphite.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/jsonDisplayer/JsonDIsplayer.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/jsonDisplayer/JsonDisplayer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/loadingIcon/Generated.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/loadingIcon/LoadingIcon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/loadingIcon/LoadingIcon.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/marker/Marker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/queryConsole/QueryConsole.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/queryConsole/QueryConsole.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/queryField/QueryField.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/queryField/QueryField.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/schema/Schema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/schema/Schema.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/schemaContainer/SchemaContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/schemaContainer/SchemaContainer.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/schemaPanel/SchemaPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/schemaPanel/SchemaPanel.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/typeLabel/TypeLabel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/typeLabel/TypeLabel.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/enum/Enum.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/enum/Enum.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/input/Input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/input/Input.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/object/Object.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/object/Object.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/scalar/Scalar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/scalar/Scalar.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/union/Union.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/types/union/Union.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/UtilMethods.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/introspection/introspection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/jsonDisplayer/JsonDisplayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/jsonDisplayer/JsonDisplayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/queryConsole/QueryConsole.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/queryConsole/QueryConsole.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +136,8 @@
       <workItem from="1592808150372" duration="4376000" />
       <workItem from="1592815718618" duration="4708000" />
       <workItem from="1592825403758" duration="11287000" />
-      <workItem from="1592845456861" duration="3884000" />
+      <workItem from="1592845456861" duration="4401000" />
+      <workItem from="1592893899618" duration="16361000" />
     </task>
     <servers />
   </component>
@@ -202,34 +153,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591262839001" />
-    <state width="1899" height="250" key="GridCell.Tab.0.bottom" timestamp="1592847220838">
+    <state width="1899" height="250" key="GridCell.Tab.0.bottom" timestamp="1592917128121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="250" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592847220838" />
-    <state width="1899" height="250" key="GridCell.Tab.0.center" timestamp="1592847220838">
+    <state width="1899" height="250" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592917128121" />
+    <state width="1899" height="250" key="GridCell.Tab.0.center" timestamp="1592917128121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="250" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592847220838" />
-    <state width="1899" height="250" key="GridCell.Tab.0.left" timestamp="1592847220838">
+    <state width="1899" height="250" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592917128121" />
+    <state width="1899" height="250" key="GridCell.Tab.0.left" timestamp="1592917128120">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="250" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592847220838" />
-    <state width="1899" height="250" key="GridCell.Tab.0.right" timestamp="1592847220838">
+    <state width="1899" height="250" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592917128120" />
+    <state width="1899" height="250" key="GridCell.Tab.0.right" timestamp="1592917128121">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="250" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592847220838" />
+    <state width="1899" height="250" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592917128121" />
     <state x="425" y="181" key="SettingsEditor" timestamp="1591359253498">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="425" y="181" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591359253498" />
-    <state x="-1526" y="-14" width="1492" height="744" maximized="true" key="dock-window-1" timestamp="1592849207408">
+    <state x="-1526" y="-14" width="1492" height="744" maximized="true" key="dock-window-1" timestamp="1592916815508">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1526" y="-14" width="1492" height="744" maximized="true" key="dock-window-1/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592849207408" />
-    <state x="668" y="95" width="583" height="849" key="find.popup" timestamp="1592495103819">
+    <state x="-1526" y="-14" width="1492" height="744" maximized="true" key="dock-window-1/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592916815508" />
+    <state x="668" y="95" width="583" height="849" key="find.popup" timestamp="1592903843776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="95" width="583" height="849" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592495103819" />
+    <state x="668" y="95" width="583" height="849" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592903843776" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1591813634447">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

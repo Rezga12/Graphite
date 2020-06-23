@@ -7,33 +7,17 @@ export default class JsonDisplayer extends React.Component{
         super(props);
 
         this.viewportRef = React.createRef();
-        this.dataSize = 100;
-
-        this.state = {
-            minIndex: 0,
-            scrollTopNumUp: 0,
-            scrollTopNumDown: this.dataSize - this.props.displayedDataSize,
-            scrollTop: 0
-        }
-
-        console.log(this.recursiveRender(this.props.model, 0, false));
+        this.data = [];
 
         this.refArr = []
     }
 
-    componentDidMount() {
-        this.viewportRef.current.scrollTop = this.state.scrollTop;
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-    }
-
-    handleScroll = e => {
+    /*handleScroll = (scrolltop) => {
         if(this.viewportRef.current.scrollTop > this.props.tolerance * this.props.lineHeight + this.state.scrollTopNumUp * this.props.lineHeight){
             const diff = Math.ceil((this.viewportRef.current.scrollTop - (this.props.tolerance * this.props.lineHeight + this.state.scrollTopNumUp * this.props.lineHeight)) / this.props.lineHeight);
 
             const newMinIndex = this.state.minIndex + diff;
-            if(newMinIndex + this.props.displayedDataSize <= this.dataSize){
+            if(newMinIndex + this.props.displayedDataSize <= this.data.length){
                 this.setState({
                     minIndex: newMinIndex,
                     scrollTopNumUp: this.state.scrollTopNumUp + diff,
@@ -41,8 +25,8 @@ export default class JsonDisplayer extends React.Component{
                 });
             }else{
                 this.setState({
-                    minIndex: Math.max(0,this.dataSize - this.props.displayedDataSize),
-                    scrollTopNumUp: Math.max(this.dataSize - this.props.displayedDataSize),
+                    minIndex: Math.max(0,this.data.length - this.props.displayedDataSize),
+                    scrollTopNumUp: Math.max(this.data.length - this.props.displayedDataSize),
                     scrollTopNumDown: 0,
                 });
             }
@@ -60,7 +44,7 @@ export default class JsonDisplayer extends React.Component{
                 this.setState({
                     minIndex: 0,
                     scrollTopNumUp: 0,
-                    scrollTopNumDown: Math.max(0,this.dataSize - this.props.displayedDataSize),
+                    scrollTopNumDown: Math.max(0,this.data.length - this.props.displayedDataSize),
                 });
             }
         }
@@ -80,11 +64,15 @@ export default class JsonDisplayer extends React.Component{
         }
 
         return data;
+    }*/
+
+    handleScroll = e => {
+        this.props.scrollHandler(this.viewportRef.current.scrollTop, this.props.data.length);
     }
 
+    getData(offset, length) {
 
-    recursiveRender(model, tabNum, first){
-        // TODO recursive render into data from scratch.
+        return this.props.data.slice(offset,length + offset);
     }
 
     render() {
@@ -92,10 +80,12 @@ export default class JsonDisplayer extends React.Component{
             return null;
         }
 
-        const data = this.getData(this.state.minIndex, Math.min(this.dataSize, this.props.displayedDataSize));
+        const data = this.getData(this.props.minIndex, Math.min(this.props.data.length, this.props.displayedDataSize));
 
-        const upVirtualHeight = this.state.scrollTopNumUp * this.props.lineHeight;
-        const downVirtualHeight = this.state.scrollTopNumDown * this.props.lineHeight;
+        console.log(data);
+
+        const upVirtualHeight = this.props.minIndex * this.props.lineHeight;
+        const downVirtualHeight = (this.props.data.length - this.props.displayedDataSize - this.props.minIndex) * this.props.lineHeight;
 
         return (<div className={styles.container}
                      ref={this.viewportRef}
@@ -104,8 +94,8 @@ export default class JsonDisplayer extends React.Component{
         >
             <div className={styles.virtualPad} style={{height: `${upVirtualHeight}px`, minHeight: `${upVirtualHeight}px`}}/>
 
-            {data.map(row => <div key={row.key} className={styles.row} ref={this.refArr[row.index]}>
-                {row.text}
+            {data.map(row => <div key={row.key} className={styles.row}>
+                <span className={styles.tab}>{row.tabs}</span>{row.markup}
             </div>)}
 
             <div className={styles.virtualPad} style={{height: `${downVirtualHeight}px`, minHeight: `${downVirtualHeight}px`}}/>
