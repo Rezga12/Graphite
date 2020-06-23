@@ -95,7 +95,7 @@ export default class JsonDisplayer extends React.Component{
             <div className={styles.virtualPad} style={{height: `${upVirtualHeight}px`, minHeight: `${upVirtualHeight}px`}}/>
 
             {data.map(row => <div key={row.key} className={styles.row}>
-                <span className={styles.tab}>{row.tabs}</span>{row.markup}
+                <span style={{paddingLeft: `${row.tabs}em`}} />{row.markup}
             </div>)}
 
             <div className={styles.virtualPad} style={{height: `${downVirtualHeight}px`, minHeight: `${downVirtualHeight}px`}}/>

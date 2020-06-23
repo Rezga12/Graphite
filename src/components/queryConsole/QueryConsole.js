@@ -72,12 +72,12 @@ export default class QueryConsole extends React.Component{
         if(Array.isArray(model)){
             result.push(this.getRenderModel(tabs, "["));
             model.forEach(entry => {
-                result = result.concat(this.recursiveRenderJsonObject(entry, tabs + "  "))
+                result = result.concat(this.recursiveRenderJsonObject(entry, tabs + 1))
             })
             result.push(this.getRenderModel(tabs, "],"));
         }else if(typeof model === 'object'){
             result.push(this.getRenderModel(tabs, "{"));
-            result = result.concat(this.recursiveRenderJsonObjectBody(model, tabs + "  "))
+            result = result.concat(this.recursiveRenderJsonObjectBody(model, tabs + 1))
             result.push(this.getRenderModel(tabs, "},"));
         }
 
@@ -97,14 +97,14 @@ export default class QueryConsole extends React.Component{
                if(Array.isArray(model[key])){
                    result.push(this.getRenderModel(tabs,`${key}: [`))
                    model[key].forEach(entry => {
-                       result = result.concat(this.recursiveRenderJsonObject(entry, tabs + "  "))
+                       result = result.concat(this.recursiveRenderJsonObject(entry, tabs + 1))
                    })
                    result.push(this.getRenderModel(tabs, `],`))
                } else if(model[key] === null || model[key] === undefined){
                    result.push(this.getRenderModel(tabs, `${key}: null,`))
                }else if(typeof model[key] === 'object'){
                    result.push(this.getRenderModel(tabs, `${key}: {`))
-                   result = result.concat(this.recursiveRenderJsonObjectBody(model[key], tabs + "  "))
+                   result = result.concat(this.recursiveRenderJsonObjectBody(model[key], tabs + 1))
                    result.push(this.getRenderModel(tabs, `},`))
                }else if(typeof model[key] === 'number'){
                    result.push(this.getRenderModel(tabs, `${key}: ${model[key]}`))
@@ -119,7 +119,7 @@ export default class QueryConsole extends React.Component{
 
     recursiveRenderJson(model){
 
-        return this.recursiveRenderJsonObject(model, "").map((entry, i) => {
+        return this.recursiveRenderJsonObject(model, 0).map((entry, i) => {
             return {
                 key: i,
                 markup: entry.markup,
