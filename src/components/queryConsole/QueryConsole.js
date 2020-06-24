@@ -3,6 +3,7 @@ import styles from './QueryConsole.module.css'
 import QueryField from "../queryField/QueryField";
 import JsonDisplayer from "../jsonDisplayer/JsonDisplayer";
 import LoadingIcon from "../loadingIcon/LoadingIcon";
+import jsonTheme from "../../JsonColorScheme.module.css"
 
 export default class QueryConsole extends React.Component{
     constructor(props) {
@@ -95,21 +96,21 @@ export default class QueryConsole extends React.Component{
         }else if(typeof model === 'object'){
             Object.keys(model).forEach(key => {
                if(Array.isArray(model[key])){
-                   result.push(this.getRenderModel(tabs,`${key}: [`))
+                   result.push(this.getRenderModel(tabs, <span><span className={jsonTheme.key}>{key}</span>: [</span>/*`${key}: [`*/))
                    model[key].forEach(entry => {
                        result = result.concat(this.recursiveRenderJsonObject(entry, tabs + 1))
                    })
                    result.push(this.getRenderModel(tabs, `],`))
                } else if(model[key] === null || model[key] === undefined){
-                   result.push(this.getRenderModel(tabs, `${key}: null,`))
+                   result.push(this.getRenderModel(tabs, <span className={jsonTheme.key}>{key}: <span className={jsonTheme.nullColor}>null</span></span>/*`${key}: null,`*/))
                }else if(typeof model[key] === 'object'){
-                   result.push(this.getRenderModel(tabs, `${key}: {`))
+                   result.push(this.getRenderModel(tabs, <span><span className={jsonTheme.key}>{key}</span>: {'{'}</span>/*`${key}: {`*/))
                    result = result.concat(this.recursiveRenderJsonObjectBody(model[key], tabs + 1))
                    result.push(this.getRenderModel(tabs, `},`))
                }else if(typeof model[key] === 'number'){
-                   result.push(this.getRenderModel(tabs, `${key}: ${model[key]}`))
+                   result.push(this.getRenderModel(tabs, <span className={jsonTheme.key}>{key}: <span className={jsonTheme.numValue}>{model[key]}</span></span>/*`${key}: ${model[key]}`*/))
                }else{
-                   result.push(this.getRenderModel(tabs, `${key}: "${model[key]}"`))
+                   result.push(this.getRenderModel(tabs, <span className={jsonTheme.key}>{key}: <span className={jsonTheme.numValue}>{'"'}{model[key]}{'"'}</span></span>/*`${key}: "${model[key]}"`*/))
                }
             });
         }

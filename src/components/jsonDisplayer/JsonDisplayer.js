@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./JsonDIsplayer.module.css"
-import theme from "../../JsonColorScheme.module.css"
+import jsonTheme from "../../JsonColorScheme.module.css"
 
 export default class JsonDisplayer extends React.Component{
     constructor(props) {
@@ -81,9 +81,6 @@ export default class JsonDisplayer extends React.Component{
         }
 
         const data = this.getData(this.props.minIndex, Math.min(this.props.data.length, this.props.displayedDataSize));
-
-        console.log(data);
-
         const upVirtualHeight = this.props.minIndex * this.props.lineHeight;
         const downVirtualHeight = (this.props.data.length - this.props.displayedDataSize - this.props.minIndex) * this.props.lineHeight;
 
@@ -95,7 +92,8 @@ export default class JsonDisplayer extends React.Component{
             <div className={styles.virtualPad} style={{height: `${upVirtualHeight}px`, minHeight: `${upVirtualHeight}px`}}/>
 
             {data.map(row => <div key={row.key} className={styles.row}>
-                <span style={{paddingLeft: `${row.tabs}em`}} />{row.markup}
+                <span style={{paddingLeft: `${row.tabs}em`}} />
+                {row.markup}
             </div>)}
 
             <div className={styles.virtualPad} style={{height: `${downVirtualHeight}px`, minHeight: `${downVirtualHeight}px`}}/>
