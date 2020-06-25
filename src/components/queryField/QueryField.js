@@ -17,6 +17,8 @@ export default class QueryField extends React.Component{
             mutation: 'mutation',
             __schema: '__schema'
         }
+
+        this.queryObject = {}
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -39,6 +41,8 @@ export default class QueryField extends React.Component{
         return model.fields.map(field => <DynamicParameter key={'q' + field.name}
                                                            model={field}
                                                            typeDict={this.props.typeDict}
+                                                           tab={2}
+                                                           receiver={this.receiveQueryFields}
                                             />)
     }
 
@@ -56,20 +60,18 @@ export default class QueryField extends React.Component{
         if(model === undefined){
             return null;
         }
-
-        console.log("model: ", model);
-    }
-
-    queryFieldTypeChanged = e => {
-        this.setState({
-            queryFieldType: e.target.value,
-        })
     }
 
     handleQueryTypeChange = e =>{
         this.setState({
             queryType: e.target.value
         })
+    }
+
+    receiveQueryFields = fields => {
+        this.queryObject = {...this.queryObject, ...fields}
+
+        console.log(this.queryObject);
     }
 
     render() {
@@ -92,7 +94,34 @@ export default class QueryField extends React.Component{
         );
     }
 
+    serializeQuery(queryObject){
+        let res = ''
+        Object.keys(queryObject).forEach(key => {
+                if(queryObject[key] === 'final'){
+                    res += key + ' ';
+                }else if(Object.keys(queryObject[key]).length === 0){
+                    return null;
+                }else{
+                    const addition = this.serializeQuery(queryObject[key]);
+                    if(!addition){
+                        return null;
+                    }
+                    res += key + '{';
+                    res += addition + ' ';
+                    res += '}';
+                }
+        })
+
+        return res;
+    }
+
     handleClick = e => {
-        this.props.queryHandler(this.textareaRef.current.textContent);
+        const serializedQuery = this.serializeQuery(this.queryObject);
+        if(!serializedQuery){
+            alert("error message gonna be better")
+            return
+        }
+
+        this.props.queryHandler(`${this.state.queryType}{${serializedQuery}}`);
     }
 }

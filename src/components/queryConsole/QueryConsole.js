@@ -174,7 +174,6 @@ export default class QueryConsole extends React.Component{
     }
 
     handleResize = e => {
-        //console.log(this.state.schemaWidth, , this.schemaWindowRef.current.innerWidth);
         this.setState({consoleWidth: this.consoleRef.current.getBoundingClientRect().width})
     }
 

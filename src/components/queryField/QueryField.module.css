@@ -7,8 +7,6 @@
     color: #d68c8c;
     caret-color: #d68c8c;
 
-
-
     display: flex;
     flex-direction: column;
 }
@@ -17,7 +15,6 @@
     width: 100%;
     height: 80%;
     outline: none;
-    padding: 5px;
 
     font-family: Consolas, monaco, monospace;
 
@@ -25,6 +22,10 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
+
+    box-sizing: border-box;
+
+    overflow: scroll;
 }
 
 .button{
