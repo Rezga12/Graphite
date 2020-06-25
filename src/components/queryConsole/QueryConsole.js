@@ -133,6 +133,7 @@ export default class QueryConsole extends React.Component{
                         <QueryField queryHandler={this.props.queryHandler}
                                     schema={this.props.schema}
                                     typeDict={this.props.typeDict}
+                                    connected={this.props.connected}
                         />
                     </div>
 

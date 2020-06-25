@@ -77,7 +77,9 @@ export default class QueryField extends React.Component{
     render() {
         return (
             <div className={styles.container} >
-                <div className={styles.textareaContainer} >
+                {!this.props.connected && <span className={styles.red}>connection not established...</span>}
+                {this.props.connected && <div className={styles.textareaContainer} >
+
                     <select onChange={this.handleQueryTypeChange} className={styles.select}>
                         <option>Select query type</option>
                         <option>query</option>
@@ -86,7 +88,7 @@ export default class QueryField extends React.Component{
                     </select>
                     {this.renderQuery()}
                     {this.renderFieldTypes()}
-                </div>
+                </div>}
                 <button className={styles.button} onClick={this.handleClick}>
                     Send Query
                 </button>
@@ -96,21 +98,28 @@ export default class QueryField extends React.Component{
 
     serializeQuery(queryObject){
         let res = ''
-        Object.keys(queryObject).forEach(key => {
-                if(queryObject[key] === 'final'){
-                    res += key + ' ';
-                }else if(Object.keys(queryObject[key]).length === 0){
+
+        const keys = Object.keys(queryObject);
+        for(let i=0;i<keys.length;i++){
+            const key = keys[i];
+
+            if(queryObject[key] === 'final') {
+                res += key + ' ';
+            }
+            else if(queryObject[key] === null){
+                
+            }else if(Object.keys(queryObject[key]).length === 0){
+                return null;
+            }else{
+                const addition = this.serializeQuery(queryObject[key]);
+                if(!addition){
                     return null;
-                }else{
-                    const addition = this.serializeQuery(queryObject[key]);
-                    if(!addition){
-                        return null;
-                    }
-                    res += key + '{';
-                    res += addition + ' ';
-                    res += '}';
                 }
-        })
+                res += key + '{';
+                res += addition + ' ';
+                res += '}';
+            }
+        }
 
         return res;
     }

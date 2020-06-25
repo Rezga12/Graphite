@@ -19,10 +19,15 @@ export default class Graphite extends React.Component{
             queryResult: '',
             loading: false,
             typeDict: {},
+            connectionEstablished: false
         };
 
         this.addEventListeners();
         this.queryWindowRef = React.createRef();
+    }
+
+    componentDidMount() {
+        this.fetchSchema({});
     }
 
     fetchSchema = (event) => {
@@ -47,6 +52,7 @@ export default class Graphite extends React.Component{
             this.setState({
                 schemaModel: obj.data.__schema,
                 typeDict: dict,
+                connectionEstablished: true,
             })
         }).catch(error => {
             console.log(error);
@@ -105,6 +111,7 @@ export default class Graphite extends React.Component{
                                           loading={this.state.loading}
                                           schema={this.state.schemaModel}
                                           typeDict={this.state.typeDict}
+                                          connected={this.state.connectionEstablished}
                             />
                         </div>
                     </div>
