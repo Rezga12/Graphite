@@ -17,6 +17,9 @@ export const queryObject = gql`
             types{
                 ...Type
             }
+            queryType{
+                ...Type
+            }
         }
     }
     

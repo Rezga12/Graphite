@@ -13,15 +13,36 @@
     flex-direction: column;
 }
 
-.textarea{
+.textareaContainer{
     width: 100%;
     height: 80%;
     outline: none;
     padding: 5px;
+
+    font-family: Consolas, monaco, monospace;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
 }
 
 .button{
     height: 10%;
     box-sizing: border-box;
     cursor: pointer;
+}
+
+.fieldRow{
+    background: #465d7e;
+}
+
+.select{
+    margin: 5px;
+
+    font-size: 15px;
+}
+
+.tab{
+    margin-left: 2em;
 }

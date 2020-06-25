@@ -18,6 +18,7 @@ export default class Graphite extends React.Component{
             queryWidth: 1200,
             queryResult: '',
             loading: false,
+            typeDict: {},
         };
 
         this.addEventListeners();
@@ -39,8 +40,13 @@ export default class Graphite extends React.Component{
             }
             throw res.statusText;
         }).then(obj => {
+            const dict = {};
+            obj.data.__schema.types.forEach(type => {
+                dict[type.name] = type;
+            })
             this.setState({
                 schemaModel: obj.data.__schema,
+                typeDict: dict,
             })
         }).catch(error => {
             console.log(error);
@@ -96,7 +102,10 @@ export default class Graphite extends React.Component{
                             <QueryConsole queryWidth={this.state.queryWidth}
                                           queryHandler={this.handleQuery}
                                           result={this.state.queryResult}
-                                          loading={this.state.loading}/>
+                                          loading={this.state.loading}
+                                          schema={this.state.schemaModel}
+                                          typeDict={this.state.typeDict}
+                            />
                         </div>
                     </div>
                 </div>);

@@ -27,8 +27,6 @@ export default class QueryConsole extends React.Component{
 
     handleScroll = (scrollTop, dataLength) => {
 
-        console.log("handle scroll", scrollTop, dataLength);
-
         const scrollTopNumUp = this.state.minIndex;
 
         if(scrollTop > (this.tolerance + scrollTopNumUp) * this.lineHeight){
@@ -132,7 +130,10 @@ export default class QueryConsole extends React.Component{
     render() {
         return (<div className={styles.container} ref={this.containerRef}>
                     <div className={styles.queryContainer} style={{width: `${this.state.consoleWidth}px`}} ref={this.consoleRef}>
-                        <QueryField queryHandler={this.props.queryHandler}/>
+                        <QueryField queryHandler={this.props.queryHandler}
+                                    schema={this.props.schema}
+                                    typeDict={this.props.typeDict}
+                        />
                     </div>
 
                     <div className={styles.handle} onMouseDown={this.handleMouseDown}>
