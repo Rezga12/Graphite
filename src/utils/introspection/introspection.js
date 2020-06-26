@@ -20,6 +20,10 @@ export const queryObject = gql`
             queryType{
                 ...Type
             }
+            mutationType{
+                ...Type
+            }
+            
         }
     }
     

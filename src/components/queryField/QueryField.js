@@ -29,9 +29,9 @@ export default class QueryField extends React.Component{
             case this.queryType.query:
                 return this.renderFields(this.props.schema.queryType);
             case this.queryType.mutation:
-                return null;
+                return this.renderFields(this.props.schema.mutationType);
             case this.queryType.__schema:
-                return null;
+                return this.renderFields(this.props.typeDict["__Schema"]);
             default:
                 return null;
         }
@@ -46,22 +46,6 @@ export default class QueryField extends React.Component{
                                             />)
     }
 
-    renderFieldTypes(){
-        if(this.state.queryFieldType === undefined){
-            return null;
-        }
-        let model;
-        this.props.schema.queryType.fields.forEach(field => {
-            if(field.name === this.state.queryFieldType){
-                model = field;
-            }
-        });
-
-        if(model === undefined){
-            return null;
-        }
-    }
-
     handleQueryTypeChange = e =>{
         this.setState({
             queryType: e.target.value
@@ -70,8 +54,6 @@ export default class QueryField extends React.Component{
 
     receiveQueryFields = fields => {
         this.queryObject = {...this.queryObject, ...fields}
-
-        console.log(this.queryObject);
     }
 
     render() {
@@ -87,11 +69,10 @@ export default class QueryField extends React.Component{
                         <option>__schema</option>
                     </select>
                     {this.renderQuery()}
-                    {this.renderFieldTypes()}
                 </div>}
-                <button className={styles.button} onClick={this.handleClick}>
+                {this.props.connected && <button className={styles.button} onClick={this.handleClick}>
                     Send Query
-                </button>
+                </button>}
             </div>
         );
     }
@@ -102,13 +83,14 @@ export default class QueryField extends React.Component{
         const keys = Object.keys(queryObject);
         for(let i=0;i<keys.length;i++){
             const key = keys[i];
+            if(queryObject[key] === null){
+                continue;
+            }
 
             if(queryObject[key] === 'final') {
                 res += key + ' ';
             }
-            else if(queryObject[key] === null){
-                
-            }else if(Object.keys(queryObject[key]).length === 0){
+            else if(Object.keys(queryObject[key]).length === 0){
                 return null;
             }else{
                 const addition = this.serializeQuery(queryObject[key]);
@@ -131,6 +113,11 @@ export default class QueryField extends React.Component{
             return
         }
 
-        this.props.queryHandler(`${this.state.queryType}{${serializedQuery}}`);
+        let query = `${this.state.queryType}{${serializedQuery}}`;
+        if(this.state.queryType === this.queryType.__schema){
+            query = `{ ${this.state.queryType}{${serializedQuery}}}`;
+        }
+
+        this.props.queryHandler(query);
     }
 }

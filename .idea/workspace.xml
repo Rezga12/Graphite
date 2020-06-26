@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="20c9d6bf-fe8e-4775-90d7-a60b40af80f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/graphite/Graphite.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graphite/Graphite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/queryConsole/QueryConsole.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/queryConsole/QueryConsole.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/queryField/QueryField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/queryField/QueryField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/queryField/QueryField.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/queryField/QueryField.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/introspection/introspection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/introspection/introspection.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +142,8 @@
       <workItem from="1592982684960" duration="16335000" />
       <workItem from="1593009491464" duration="2782000" />
       <workItem from="1593066332124" duration="15120000" />
-      <workItem from="1593109101570" duration="1425000" />
+      <workItem from="1593109101570" duration="1634000" />
+      <workItem from="1593160574140" duration="1620000" />
     </task>
     <servers />
   </component>
@@ -160,22 +159,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591262839001" />
-    <state width="1899" height="239" key="GridCell.Tab.0.bottom" timestamp="1593109475232">
+    <state width="1899" height="239" key="GridCell.Tab.0.bottom" timestamp="1593110736075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="239" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593109475232" />
-    <state width="1899" height="239" key="GridCell.Tab.0.center" timestamp="1593109475232">
+    <state width="1899" height="239" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593110736075" />
+    <state width="1899" height="239" key="GridCell.Tab.0.center" timestamp="1593110736075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="239" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593109475232" />
-    <state width="1899" height="239" key="GridCell.Tab.0.left" timestamp="1593109475232">
+    <state width="1899" height="239" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593110736075" />
+    <state width="1899" height="239" key="GridCell.Tab.0.left" timestamp="1593110736075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="239" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593109475232" />
-    <state width="1899" height="239" key="GridCell.Tab.0.right" timestamp="1593109475232">
+    <state width="1899" height="239" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593110736075" />
+    <state width="1899" height="239" key="GridCell.Tab.0.right" timestamp="1593110736075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="239" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593109475232" />
+    <state width="1899" height="239" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593110736075" />
     <state x="425" y="181" key="SettingsEditor" timestamp="1591359253498">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -192,16 +191,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591813634447" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/utils/introspection/introspection.js</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
