@@ -81,7 +81,6 @@ export default class QueryField extends React.Component{
         let res = ''
 
         const keys = Object.keys(queryObject);
-        console.log(keys);
         for(let i=0;i<keys.length;i++){
             const key = keys[i];
             if(queryObject[key] === null){
@@ -89,8 +88,6 @@ export default class QueryField extends React.Component{
             }
 
             const fields = queryObject[key].fields;
-            console.log(queryObject);
-            console.log(`${key}:`, fields);
 
             if(!Object.keys(fields).length) {
                 res += key + ' ';

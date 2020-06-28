@@ -83,28 +83,32 @@ export default class DynamicParameter extends React.Component{
     }
 
     renderArgs(){
-        if(!this.props.typeDict[this.getTypeNameRecursively(this.props.model.type)].args?.length){
+        if(!this.props.model.args?.length){
             return null;
         }
 
-        return this.props.typeDict[this.getTypeNameRecursively(this.props.model.type)].args.map(arg =>
+        return this.props.model.args.map(arg =>
             <InputParameter key={arg.name}
                             model={arg}
                             typeDict={this.props.typeDict}
-
+                            receiver={this.receiveFromChild}
             />
         );
     }
 
     render(){
-        const fieldCount = this.props.typeDict[this.getTypeNameRecursively(this.props.model.type)].fields?.length;
+        const type = this.props.typeDict[this.getTypeNameRecursively(this.props.model.type)];
+        const fieldCount = type.fields?.length;
+        const argCount = this.props.model.args?.length;
+
         return (<div style={{marginLeft: `${this.props.tab}em`}} className={styles.container}>
                     <button onClick={this.handleClick} className={styles.button}>{this.state.active ? "-" : "+"}</button>
                     <span className={this.state.active ? styles.active : ''}>
                         {this.props.model.name}
                     </span>
-                    {this.state.active && <div className={styles.inputFieldLabel} style={{marginLeft: '1em'}}>Input Fields: </div>}
-                    {this.state.active && fieldCount && <div className={styles.queryFieldLabel} style={{marginLeft: '1em'}}>Result Fields: </div>}
+                    {(this.state.active && argCount > 0) && <div className={styles.inputFieldLabel} style={{marginLeft: '1em'}}>Input Fields: </div>}
+                    {this.state.active && this.renderArgs()}
+                    {(this.state.active && fieldCount > 0) && <div className={styles.queryFieldLabel} style={{marginLeft: '1em'}}>Result Fields: </div>}
                     {this.state.active && this.renderFields()}
                 </div>);
     }

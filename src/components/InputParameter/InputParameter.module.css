@@ -1,0 +1,19 @@
+.container{
+
+    color: #7171f8;
+}
+
+.button{
+    width: 20px;
+    margin-right: 3px;
+}
+
+.active{
+    color: #c6c6fd;
+    font-weight: bold;
+}
+
+.type{
+    color: #f8ff0e;
+    font-size: 14px;
+}
