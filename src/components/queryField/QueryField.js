@@ -81,22 +81,28 @@ export default class QueryField extends React.Component{
         let res = ''
 
         const keys = Object.keys(queryObject);
+        console.log(keys);
         for(let i=0;i<keys.length;i++){
             const key = keys[i];
             if(queryObject[key] === null){
                 continue;
             }
 
-            if(queryObject[key] === 'final') {
+            const fields = queryObject[key].fields;
+            console.log(queryObject);
+            console.log(`${key}:`, fields);
+
+            if(!Object.keys(fields).length) {
                 res += key + ' ';
             }
-            else if(Object.keys(queryObject[key]).length === 0){
+            else if(Object.keys(fields).length === 0){
                 return null;
             }else{
-                const addition = this.serializeQuery(queryObject[key]);
+                const addition = this.serializeQuery(fields);
                 if(!addition){
                     return null;
                 }
+
                 res += key + '{';
                 res += addition + ' ';
                 res += '}';
@@ -107,7 +113,7 @@ export default class QueryField extends React.Component{
     }
 
     handleClick = e => {
-        const serializedQuery = this.serializeQuery(this.queryObject);
+        const serializedQuery = this.serializeQuery(this.queryObject.fields);
         if(!serializedQuery){
             alert("error message gonna be better")
             return

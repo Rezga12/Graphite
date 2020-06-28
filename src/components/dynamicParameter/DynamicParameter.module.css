@@ -4,10 +4,22 @@
 }
 
 .container{
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 .button{
     width: 20px;
     margin-right: 3px;
+}
+
+.queryFieldLabel{
+    color: #35ac6a;
+
+    font-size: 13px;
+}
+
+.inputFieldLabel{
+    color: #1d6196;
+
+    font-size: 13px;
 }
