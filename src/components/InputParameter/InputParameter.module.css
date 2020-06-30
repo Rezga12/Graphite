@@ -17,3 +17,13 @@
     color: #f8ff0e;
     font-size: 14px;
 }
+
+.required{
+    color: #ff0000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.input{
+    transition: all .3s;
+}

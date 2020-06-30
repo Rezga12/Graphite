@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './InputParameter.module.css'
 import {TypeKind} from "graphql";
+import InputParameterList from "../inputParameterList/InputParameterList";
 
 export default class InputParameter extends React.Component{
     constructor(props) {
@@ -37,8 +38,39 @@ export default class InputParameter extends React.Component{
 
     }
 
+    isListObject(type){
+        switch (type.kind) {
+            case TypeKind.NON_NULL:
+                return this.receiveFromChild(type.ofType)
+            case TypeKind.LIST:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    getListElemTypeName(type){
+        switch (type.kind) {
+            case TypeKind.NON_NULL:
+                return this.getListElemType(type.ofType)
+            case TypeKind.LIST:
+                return this.getTypeNameRecursively(type.ofType);
+            default:
+                return null;
+        }
+    }
+
     renderInputObjects(){
-        if(this.getTypeKindRecursively(this.props.model.type) === TypeKind.INPUT_OBJECT){
+        if(this.isListObject(this.props.model.type)){
+
+            return <InputParameter model={this.props.typeDict[this.getListElemTypeName(this.props.model.type)]}
+                                   typeDict={this.props.typeDict}
+                                   receiver={this.receiveFromChild}
+                                   listElem={true}
+            />
+
+        }else if(this.getTypeKindRecursively(this.props.model.type) === TypeKind.INPUT_OBJECT){
+
             return this.props.typeDict[this.getTypeNameRecursively(this.props.model.type)].inputFields.map(field =>
                         <InputParameter key={field.name}
                                         model={field}
@@ -46,26 +78,40 @@ export default class InputParameter extends React.Component{
                                         receiver={this.receiveFromChild}
                         />
                     )
-
         }else{
-            return <div style={{marginLeft: '2em'}}>
-                        <input />
-                    </div>
+            return null;
+        }
+    }
+
+    renderInputField(){
+        if(this.state.active && this.getTypeKindRecursively(this.props.model.type) !== TypeKind.INPUT_OBJECT){
+            return <span >
+                <input className={styles.input}/>
+            </span>
         }
     }
 
     render() {
-        return (
-            <div className={styles.container} style={{marginLeft: '2em'}}>
-                <button onClick={this.handleClick} className={styles.button}>{this.state.active ? "-" : "+"}</button>
-                <span className={this.state.active ? styles.active : ''}>
-                    {this.props.model.name}: {' '}
-                </span>
-                <span className={styles.type}>
-                    {this.getTypeNameRecursively(this.props.model.type)}
-                </span>
-                {this.state.active && this.renderInputObjects()}
-            </div>
-        );
+
+        if(this.props.listElem){
+            return <InputParameterList model={this.props.model}
+                                       typeDict={this.props.typeDict}
+                                       receiver={this.receiveFromChild}
+            />
+        }else{
+            console.log(this.props.model);
+            return (<div className={styles.container} style={{marginLeft: '2em'}}>
+                        <button onClick={this.handleClick} className={styles.button}>{this.state.active ? "-" : "+"}</button>
+                        <span className={this.state.active ? styles.active : ''}>
+                            {this.props.model.name}: {' '}
+                        </span>
+                        {this.renderInputField()}
+                        <span style={{marginLeft: '3px'}} className={styles.type}>
+                            {this.getTypeNameRecursively(this.props.model.type)}
+                        </span>
+                        {this.props.model.type.kind === TypeKind.NON_NULL && <span className={styles.required}>!</span>}
+                        {this.state.active && this.renderInputObjects()}
+                    </div>);
+        }
     }
 }
