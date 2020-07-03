@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20c9d6bf-fe8e-4775-90d7-a60b40af80f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/inputParameterList/InputParameterList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/inputParameterList/InputParameterList.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InputParameter/InputParameter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputParameter/InputParameter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InputParameter/InputParameter.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputParameter/InputParameter.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +59,18 @@
       <recent name="C:\Users\rezga\Desktop\ql\graphite\src\components\app" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
@@ -72,6 +82,7 @@
         <script value="start" />
       </scripts>
       <node-interpreter value="project" />
+      <package-manager value="npm" />
       <envs />
       <method v="2" />
     </configuration>
@@ -150,11 +161,27 @@
       <workItem from="1593329426725" duration="15727000" />
       <workItem from="1593497025155" duration="6781000" />
       <workItem from="1593504787902" duration="1883000" />
+      <workItem from="1593768727836" duration="1754000" />
+      <workItem from="1593780992011" duration="795000" />
+      <workItem from="1593783557487" duration="286000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1589389952119">
