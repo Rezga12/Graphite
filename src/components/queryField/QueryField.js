@@ -54,6 +54,7 @@ export default class QueryField extends React.Component{
 
     receiveQueryFields = fields => {
         this.queryObject = {...this.queryObject, ...fields}
+        console.log(this.queryObject);
     }
 
     render() {

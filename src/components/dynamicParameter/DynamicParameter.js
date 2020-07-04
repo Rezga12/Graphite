@@ -92,6 +92,7 @@ export default class DynamicParameter extends React.Component{
                             model={arg}
                             typeDict={this.props.typeDict}
                             receiver={this.receiveFromChild}
+                            clickHandler={()=>{}}
             />
         );
     }
