@@ -53,8 +53,8 @@ export default class QueryField extends React.Component{
     }
 
     receiveQueryFields = fields => {
-        this.queryObject = {...this.queryObject, ...fields}
-        console.log(this.queryObject);
+        this.queryObject.fields = {...this.queryObject.fields, ...fields.fields}
+        this.queryObject.args = {...this.queryObject.args, ...fields.args}
     }
 
     render() {
@@ -78,6 +78,33 @@ export default class QueryField extends React.Component{
         );
     }
 
+    serializeJson(args){
+        let res = '';
+        if(typeof args === 'object'){
+            if(args){
+                res += '{'
+                const keys = Object.keys(args);
+                keys.forEach((key, i) => {
+                    res += key
+                    res += ':';
+                    res += this.serializeJson(args[key])
+                    res += i === keys.length - 1 ? '' : ','
+                })
+                res += '}'
+            }else{
+                return null;
+            }
+        }else if(typeof args === 'string'){
+            res += '"';
+            res += args
+            res += '"';
+        }else if(typeof  args === 'number'){
+            res += args
+        }
+
+        return res;
+    }
+
     serializeQuery(queryObject){
         let res = ''
 
@@ -89,9 +116,15 @@ export default class QueryField extends React.Component{
             }
 
             const fields = queryObject[key].fields;
+            const args = queryObject[key].args;
+            let argStr = '';
+            if(args && Object.keys(args).length > 0){
+                argStr = this.serializeJson(args)
+                argStr = '(' + argStr.substr(1,argStr.length-2) + ')';
+            }
 
             if(!Object.keys(fields).length) {
-                res += key + ' ';
+                res += key + argStr + ' ';
             }
             else if(Object.keys(fields).length === 0){
                 return null;
@@ -101,7 +134,7 @@ export default class QueryField extends React.Component{
                     return null;
                 }
 
-                res += key + '{';
+                res += key + argStr + '{';
                 res += addition + ' ';
                 res += '}';
             }
@@ -116,6 +149,8 @@ export default class QueryField extends React.Component{
             alert("error message gonna be better")
             return
         }
+
+        console.log(serializedQuery);
 
         let query = `${this.state.queryType}{${serializedQuery}}`;
         if(this.state.queryType === this.queryType.__schema){

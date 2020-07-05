@@ -93,6 +93,7 @@ export default class DynamicParameter extends React.Component{
                             typeDict={this.props.typeDict}
                             receiver={this.receiveFromChild}
                             clickHandler={()=>{}}
+                            root={true}
             />
         );
     }

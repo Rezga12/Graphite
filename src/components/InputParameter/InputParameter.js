@@ -11,27 +11,23 @@ export default class InputParameter extends React.Component{
             active: false,
         }
 
-        this.inputs = {args: {}}
+        this.inputs = {}
     }
 
     handleClick = e => {
         this.props.clickHandler(this.props._key, this.props.index, this.state.active);
 
+        let value = this.getTypeKindRecursively(this.props.model.type) === TypeKind.INPUT_OBJECT ? {} : ""
         if(this.state.active){
-            this.props.receiver({
-                fields: {},
-                args: {
-                    [this.props.model.name]: null
-                }
-            });
-        }else{
-            this.props.receiver({
-                fields: {},
-                args: {
-                    [this.props.model.name]: this.getTypeKindRecursively(this.props.model.type) === TypeKind.INPUT_OBJECT ? {} : ""
-                }
-            });
+            value = null;
         }
+
+        let model = {[this.props.model.name]: value};
+        if(this.props.root){
+            model = {args: model}
+        }
+
+        this.props.receiver(model);
 
         this.setState({
             active: !this.state.active,
@@ -55,13 +51,14 @@ export default class InputParameter extends React.Component{
     }
 
     receiveFromChild = (model) =>{
-        this.inputs.fields = {...this.inputs.fields, ...model.fields};
-        this.inputs.args = {...this.inputs.args, ...model.args};
+        this.inputs = {...this.inputs, ...model};
+        let result = {[this.props.model.name]: this.inputs};
 
-        this.props.receiver({
-            fields: {},
-            args: {[this.props.model.name]: this.inputs}
-        });
+        if(this.props.root){
+            result = {args: result};
+        }
+
+        this.props.receiver(result);
     }
 
     isListObject(type){
@@ -119,17 +116,15 @@ export default class InputParameter extends React.Component{
     }
 
     handleChange = e => {
-        this.props.receiver({
-            fields: {},
-            args: {
-                [this.props.model.name]: e.target.value
-            }
-        });
+        let model = {[this.props.model.name]: e.target.value};
+        if(this.props.root){
+            model = {args: model}
+        }
+        this.props.receiver(model);
     }
 
     render() {
         if(this.props.listElem){
-            console.log(this.props.model);
             return <InputParameterList model={this.props.model}
                                        typeDict={this.props.typeDict}
                                        receiver={this.receiveFromChild}
