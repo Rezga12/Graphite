@@ -55,6 +55,8 @@ export default class QueryField extends React.Component{
     receiveQueryFields = fields => {
         this.queryObject.fields = {...this.queryObject.fields, ...fields.fields}
         this.queryObject.args = {...this.queryObject.args, ...fields.args}
+
+        console.log(this.queryObject);
     }
 
     render() {
@@ -149,8 +151,6 @@ export default class QueryField extends React.Component{
             alert("error message gonna be better")
             return
         }
-
-        console.log(serializedQuery);
 
         let query = `${this.state.queryType}{${serializedQuery}}`;
         if(this.state.queryType === this.queryType.__schema){

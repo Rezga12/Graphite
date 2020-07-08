@@ -26,8 +26,7 @@ export default class InputParameter extends React.Component{
         if(this.props.root){
             model = {args: model}
         }
-
-        this.props.receiver(model);
+        this.props.receiver(model, this.props.index);
 
         this.setState({
             active: !this.state.active,
@@ -50,15 +49,24 @@ export default class InputParameter extends React.Component{
         return type.kind;
     }
 
-    receiveFromChild = (model) =>{
+    receiveFromChild = (model) => {
+
+        if(this.props.listElem){
+            this.props.receiver(model, this.props.index);
+            return;
+        }
+
         this.inputs = {...this.inputs, ...model};
+        if(Array.isArray(model)){
+            this.inputs = model;
+        }
         let result = {[this.props.model.name]: this.inputs};
 
         if(this.props.root){
             result = {args: result};
         }
 
-        this.props.receiver(result);
+        this.props.receiver(result, this.props.index);
     }
 
     isListObject(type){
@@ -90,6 +98,7 @@ export default class InputParameter extends React.Component{
                                    receiver={this.receiveFromChild}
                                    clickHandler={()=>{}}
                                    listElem={true}
+                                   name={this.props.model.name}
             />
 
         }else if(this.getTypeKindRecursively(this.props.model.type) === TypeKind.INPUT_OBJECT){
@@ -120,7 +129,7 @@ export default class InputParameter extends React.Component{
         if(this.props.root){
             model = {args: model}
         }
-        this.props.receiver(model);
+        this.props.receiver(model, this.props.index);
     }
 
     render() {
@@ -128,6 +137,7 @@ export default class InputParameter extends React.Component{
             return <InputParameterList model={this.props.model}
                                        typeDict={this.props.typeDict}
                                        receiver={this.receiveFromChild}
+                                       name={this.props.name}
             />
         }else{
             const isListContainer = this.isListObject(this.props.model.type)
