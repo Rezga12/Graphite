@@ -116,16 +116,51 @@ export default class InputParameter extends React.Component{
         }
     }
 
+    getScalarType(model){
+        if(model.kind !== TypeKind.SCALAR){
+            model = model.ofType
+        }
+        switch (model.name) {
+            case "Int":
+            case "Integer":
+            case "Float":
+                return "number";
+            case "String":
+                return "string";
+            default:
+                return "string"
+        }
+    }
+
     renderInputField(){
-        if(this.state.active && this.getTypeKindRecursively(this.props.model.type) !== TypeKind.INPUT_OBJECT){
+        if(this.state.active && (this.props.model.type.kind === TypeKind.SCALAR ||
+            (this.props.model.type.kind === TypeKind.NON_NULL && this.props.model.type.ofType.kind === TypeKind.SCALAR))){
+
+            const scalarType = this.getScalarType(this.props.model.type);
+            let markup = null;
+            switch (scalarType) {
+                case "number":
+                    markup = <input type={'number'} className={styles.input} onChange={this.handleChange}/>;
+                    break;
+                case "string":
+                    markup = <input type={'text'} className={styles.input} onChange={this.handleChange}/>;
+                    break;
+                case "bool":
+                    break;
+            }
+
             return <span >
-                <input className={styles.input} onChange={this.handleChange}/>
+                {markup}
             </span>
         }
     }
 
     handleChange = e => {
-        let model = {[this.props.model.name]: e.target.value};
+        let value = e.target.value;
+        if(this.getScalarType(this.props.model.type) === "number"){
+            value = parseInt(value);
+        }
+        let model = {[this.props.model.name]: value};
         if(this.props.root){
             model = {args: model}
         }

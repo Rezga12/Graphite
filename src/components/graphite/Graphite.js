@@ -13,7 +13,7 @@ export default class Graphite extends React.Component{
             schemaModel: {
                 types: []
             },
-            addressValue: 'http://localhost:4466',
+            addressValue: 'http://localhost:5000/graphql',
             drag: false,
             queryWidth: 1200,
             queryResult: '',

@@ -82,7 +82,15 @@ export default class QueryField extends React.Component{
 
     serializeJson(args){
         let res = '';
-        if(typeof args === 'object'){
+        if(Array.isArray(args)){
+            res += '['
+            args.forEach((arg, i) => {
+                res += this.serializeJson(arg[i]);
+                res += i === args.length - 1 ? '' : ','
+            });
+            res += ']'
+        }
+        else if(typeof args === 'object'){
             if(args){
                 res += '{'
                 const keys = Object.keys(args);
@@ -156,6 +164,8 @@ export default class QueryField extends React.Component{
         if(this.state.queryType === this.queryType.__schema){
             query = `{ ${this.state.queryType}{${serializedQuery}}}`;
         }
+
+        console.log("query: ", query);
 
         this.props.queryHandler(query);
     }
