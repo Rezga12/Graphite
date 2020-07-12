@@ -7,4 +7,6 @@
     height: 100%;
     /*font-family: 'Source Code Pro', monospace;*/
     font-family: Consolas, monaco, monospace;
+    width: 100%;
+    margin-left: 10px;
 }

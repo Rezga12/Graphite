@@ -3,6 +3,7 @@ import styles from "./Graphite.module.css"
 import  {introspectionQuery} from "../../utils/introspection/introspection";
 import Schema from "../schema/Schema";
 import QueryConsole from "../queryConsole/QueryConsole";
+import SchemaIcon from "../../assets/icons/schema.png"
 
 export default class Graphite extends React.Component{
     
@@ -19,7 +20,10 @@ export default class Graphite extends React.Component{
             queryResult: '',
             loading: false,
             typeDict: {},
-            connectionEstablished: false
+            connectionEstablished: false,
+            schemaVisibility: false,
+            prevX: undefined,
+            schemaWidth:300,
         };
 
         this.addEventListeners();
@@ -115,7 +119,36 @@ export default class Graphite extends React.Component{
                             />
                         </div>
                     </div>
+
+                    <div className={styles.schemaContainer}>
+                        <div className={styles.buttonContainer}>
+                            <div className={this.state.schemaVisibility ? styles.schemaButtonActive : styles.schemaButton} onClick={this.handleSchemaClick}>
+                                <svg className={styles.schemaSvg} xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 24 24" width="50">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z" fill={'white'}/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div className={styles.handler} style={{display: (this.state.schemaVisibility ? 'flex' : 'none')}}>
+                            <div className={styles.hitArea} onMouseDown={this.downHandler}>
+
+                            </div>
+                        </div>
+                        <div className={styles.contentContainer}
+                             style={{
+                                 display: (this.state.schemaVisibility ? 'flex' : 'none'),
+                                 width: `${this.state.schemaWidth}px`
+                             }}>
+                            <Schema model={this.state.schemaModel}/>
+                        </div>
+                    </div>
                 </div>);
+    }
+
+    handleSchemaClick = (e) => {
+        this.setState({
+            schemaVisibility: !this.state.schemaVisibility,
+        })
     }
 
     handleQuery = query => {
@@ -123,30 +156,35 @@ export default class Graphite extends React.Component{
     }
 
     downHandler = e => {
-        this.setState({drag: true, prevX: e.clientX});
+        this.setState({
+            drag: true,
+            prevX: e.clientX,
+        });
     }
 
     upHandler = e => {
-        this.setState({drag: false, prevX: undefined});
+        this.setState({
+            drag: false,
+            prevX: undefined
+        });
     }
 
     moveHandler = e => {
         if(this.state.drag){
             const diff = e.clientX - this.state.prevX;
-            const newQueryWidth = this.state.queryWidth + diff;
-            if(newQueryWidth >= 400 && window.innerWidth - newQueryWidth >= 300){
-                this.setState({prevX: e.clientX, queryWidth: newQueryWidth});
-            }
+            this.setState({
+                schemaWidth: this.state.schemaWidth - diff,
+                prevX: e.clientX
+            })
         }
     }
 
     handleResize = e => {
-        this.setState({queryWidth: this.queryWindowRef.current.getBoundingClientRect().width})
+
     }
 
     addEventListeners(){
         document.addEventListener("mousemove", this.moveHandler);
         document.addEventListener("mouseup", this.upHandler);
-        window.addEventListener('resize',this.handleResize );
     }
 }

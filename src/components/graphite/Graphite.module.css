@@ -20,11 +20,7 @@
     align-items: center;
 }
 
-.schemaContainer{
-    min-width: 300px;
 
-    flex-grow: 1;
-}
 
 .dragger{
     width: 20px;
@@ -54,4 +50,62 @@
     height: 95%;
     box-sizing: border-box;
     width: 100%;
+}
+
+.buttonContainer{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 50px;
+}
+
+.schemaButton{
+    cursor: pointer;
+    opacity: .5;
+
+    transition: opacity .3s;
+}
+
+.schemaButton:hover{
+    opacity: 1;
+}
+
+.schemaButtonActive{
+    cursor: pointer;
+}
+
+.contentContainer{
+    background: #e4ebf5;
+    box-shadow: 2px 2px 19px 1px rgba(0,0,0,0.75);
+    min-width: 250px;
+}
+
+.schemaContainer{
+    position: absolute;
+    height: 100%;
+    right: 0;
+    display: flex;
+}
+
+.schemaSvg{
+    color: #d6d0d0;
+
+    background: linear-gradient(45deg, #35ac6a, #247c4e);
+    border-radius: 5px 0 0 5px;
+}
+
+.handler{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #46a0e5;
+}
+
+.hitArea{
+    width: 10px;
+    height: 100%;
+    position: absolute;
+
+    cursor: e-resize;
 }
