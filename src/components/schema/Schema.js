@@ -7,6 +7,11 @@ import Union from "../types/union/Union";
 import Enum from "../types/enum/Enum";
 import Input from "../types/input/Input";
 
+// You can import themes here:
+
+import classic from './schemaThemes/Classic.module.css'
+import dark from './schemaThemes/Dark.module.css'
+
 export default class Schema extends React.Component{
 
     constructor(props) {
@@ -15,6 +20,7 @@ export default class Schema extends React.Component{
         this.state = {
             control: false,
             pattern: '',
+            schemaTheme: 'Classic',
         }
 
         this.state[TypeKind.OBJECT] = true;
@@ -35,6 +41,13 @@ export default class Schema extends React.Component{
         this.types[TypeKind.UNION] = Union;
         this.types[TypeKind.ENUM] = Enum;
         this.types[TypeKind.INPUT_OBJECT] = Input;
+
+
+        // You can Add Themes Here
+        this.themes = {
+            "Classic": classic,
+            "Dark": dark,
+        }
     }
 
     addEventListeners(){
@@ -53,53 +66,70 @@ export default class Schema extends React.Component{
         });
     }
 
+    onThemeChange = e => {
+        this.setState({
+            schemaTheme: e.target.value
+        });
+    }
+
     render(){
         const types = this.props.model.types
             .filter(this.filter)
             .sort((type1, type2) => -type1.kind.localeCompare(type2.kind))
             .map(type => createElement(this.types[type.kind],{
-            model: type,
-            key: type.name,
-            control: this.state.control,
-            pattern: this.state.pattern,
+                model: type,
+                key: type.name,
+                control: this.state.control,
+                pattern: this.state.pattern,
+                theme: this.themes[this.state.schemaTheme]
         }, null));
 
-        return (<div className={styles.text + " " + styles.container} >
-                    <input type={'text'} onChange={this.searchInputChangeHandler} value={this.state.pattern} placeholder={'Search'}/>
-                    <div>
-                        <div>
-                            <input type={'checkbox'}
-                                   onChange={e => this.handleCheck(e, "introspection")}/> introspection types
+        const themeOptions = Object.keys(this.themes).map(name => <option key={name}>{name}</option>);
+
+        return (<div className={styles.text + " " + styles.container}>
+                    <div className={styles.panel}>
+                        <div className={styles.panelHeader}>
+                            <input type={'text'} onChange={this.searchInputChangeHandler} value={this.state.pattern} placeholder={'Search'}/>
+                            <select onChange={this.onThemeChange}>
+                                {themeOptions}
+                            </select>
                         </div>
+
                         <div>
-                            <input type={'checkbox'}
-                                   onChange={e => this.handleCheck(e, TypeKind.SCALAR)}
-                                   checked={this.state[TypeKind.SCALAR]}/> scalars
-                        </div>
-                        <div>
-                            <input type={'checkbox'}
-                                   onChange={e => this.handleCheck(e, TypeKind.ENUM)}
-                                   checked={this.state[TypeKind.ENUM]}/> enums
-                        </div>
-                        <div>
-                            <input type={'checkbox'}
-                                   onChange={e => this.handleCheck(e, TypeKind.OBJECT)}
-                                   checked={this.state[TypeKind.OBJECT]}/> objects
-                        </div>
-                        <div>
-                            <input type={'checkbox'}
-                                   onChange={e => this.handleCheck(e, TypeKind.UNION)}
-                                   checked={this.state[TypeKind.UNION]}/> unions
-                        </div>
-                        <div>
-                            <input type={'checkbox'}
-                                   onChange={e => this.handleCheck(e, TypeKind.INTERFACE)}
-                                   checked={this.state[TypeKind.INTERFACE]}/> interfaces
-                        </div>
-                        <div>
-                            <input type={'checkbox'}
-                                   onChange={e => this.handleCheck(e, TypeKind.INPUT_OBJECT)}
-                                   checked={this.state[TypeKind.INPUT_OBJECT]}/> inputs
+                            <div>
+                                <input type={'checkbox'}
+                                       onChange={e => this.handleCheck(e, "introspection")}/> introspection types
+                            </div>
+                            <div>
+                                <input type={'checkbox'}
+                                       onChange={e => this.handleCheck(e, TypeKind.SCALAR)}
+                                       checked={this.state[TypeKind.SCALAR]}/> scalars
+                            </div>
+                            <div>
+                                <input type={'checkbox'}
+                                       onChange={e => this.handleCheck(e, TypeKind.ENUM)}
+                                       checked={this.state[TypeKind.ENUM]}/> enums
+                            </div>
+                            <div>
+                                <input type={'checkbox'}
+                                       onChange={e => this.handleCheck(e, TypeKind.OBJECT)}
+                                       checked={this.state[TypeKind.OBJECT]}/> objects
+                            </div>
+                            <div>
+                                <input type={'checkbox'}
+                                       onChange={e => this.handleCheck(e, TypeKind.UNION)}
+                                       checked={this.state[TypeKind.UNION]}/> unions
+                            </div>
+                            <div>
+                                <input type={'checkbox'}
+                                       onChange={e => this.handleCheck(e, TypeKind.INTERFACE)}
+                                       checked={this.state[TypeKind.INTERFACE]}/> interfaces
+                            </div>
+                            <div>
+                                <input type={'checkbox'}
+                                       onChange={e => this.handleCheck(e, TypeKind.INPUT_OBJECT)}
+                                       checked={this.state[TypeKind.INPUT_OBJECT]}/> inputs
+                            </div>
                         </div>
                     </div>
                     {types}

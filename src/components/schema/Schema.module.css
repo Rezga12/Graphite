@@ -10,3 +10,15 @@
     width: 100%;
     margin-left: 10px;
 }
+
+.panel{
+    border: 1px solid black;
+
+    margin: 10px;
+    padding: 5px;
+}
+
+.panelHeader{
+    display: flex;
+    justify-content: space-between;
+}
