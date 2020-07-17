@@ -1,8 +1,9 @@
 import React from "react";
-import colorTheme from "../../CodeColorScheme.module.css"
 
 export default class Marker extends React.Component{
     render() {
+
+        const colorTheme = this.props.theme;
 
         const index = this.props.word.indexOf(this.props.pattern);
         if(index === -1){

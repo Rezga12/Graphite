@@ -17,11 +17,14 @@ export default class Schema extends React.Component{
     constructor(props) {
         super(props);
 
+        const theme = localStorage.getItem('theme');
+        console.log(theme);
+
         this.state = {
             control: false,
             pattern: '',
-            schemaTheme: 'Classic',
-        }
+            schemaTheme:  theme ? theme : 'Classic',
+        };
 
         this.state[TypeKind.OBJECT] = true;
         this.state[TypeKind.SCALAR] = true;
@@ -69,8 +72,10 @@ export default class Schema extends React.Component{
     onThemeChange = e => {
         this.setState({
             schemaTheme: e.target.value
+        }, () => {
+            localStorage.setItem('theme', this.state.schemaTheme);
         });
-    }
+    };
 
     render(){
         const types = this.props.model.types
@@ -84,9 +89,9 @@ export default class Schema extends React.Component{
                 theme: this.themes[this.state.schemaTheme]
         }, null));
 
-        const themeOptions = Object.keys(this.themes).map(name => <option key={name}>{name}</option>);
+        const themeOptions = Object.keys(this.themes).map(name => <option key={name} selected={name === this.state.schemaTheme}>{name}</option>);
 
-        return (<div className={styles.text + " " + styles.container}>
+        return (<div className={this.themes[this.state.schemaTheme].plainTextColor + " " + styles.container + " " + this.themes[this.state.schemaTheme].mainContainer}>
                     <div className={styles.panel}>
                         <div className={styles.panelHeader}>
                             <input type={'text'} onChange={this.searchInputChangeHandler} value={this.state.pattern} placeholder={'Search'}/>

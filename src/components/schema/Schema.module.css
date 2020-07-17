@@ -1,14 +1,22 @@
-.text{
+/*.text{
     color: #282c34;
-}
+}*/
 
 .container{
-    overflow: scroll;
+    overflow-y: scroll;
     height: 100%;
     /*font-family: 'Source Code Pro', monospace;*/
     font-family: Consolas, monaco, monospace;
     width: 100%;
-    margin-left: 10px;
+    padding-left: 10px;
+
+    user-select: text !important;
+    cursor: text;
+}
+
+label::selection, div::selection{
+    background: rgba(53, 172, 106, 0.4) !important;
+    border-radius: 3px;
 }
 
 .panel{

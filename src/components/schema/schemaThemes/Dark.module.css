@@ -1,0 +1,71 @@
+.keyword{
+    color: #fad905;
+    font-style: italic;
+}
+
+.plainTextColor{
+    color: #fcfcfc;
+}
+
+.classFieldColor{
+    color: #d2dedc;
+}
+
+.typeField{
+    margin-left: 30px;
+}
+
+.typeContainer{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.typeLabel{
+    color: #17b517;
+}
+
+.typeLabelHover:hover{
+    text-decoration: underline;
+}
+
+.enumField{
+    color: #8d2e02;
+}
+
+.paramName{
+    color: #a20c0c;
+}
+
+.tab{
+    margin-left: 1.5em;
+}
+
+.marker{
+    background-color: yellowgreen;
+}
+
+.mainContainer{
+    font-size: 15px;
+    background: #252b3b;
+}
+
+.mainContainer::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.mainContainer::-webkit-scrollbar-track {
+    background: #1b475f;
+    border-radius: 5px;
+}
+
+/* Handle */
+.mainContainer::-webkit-scrollbar-thumb {
+    background: rgb(19, 15, 102);
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.mainContainer::-webkit-scrollbar-thumb:hover {
+    background: rgba(19, 15, 102, 0.78);
+}

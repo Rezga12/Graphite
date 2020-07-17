@@ -29,7 +29,12 @@ export default class TypeLabel extends React.Component{
                 return (<label className={styles.plain}>[{this.getTypeName(type.ofType)}]</label>);
             default:
                 this.name = type.name;
-                return <label className={controlClass} onClick={this.handleClick}><Marker word={type.name} pattern={this.props.pattern}/></label>;
+                return <label className={controlClass + " " + this.props.theme.typeLabel} onClick={this.handleClick}>
+                            <Marker word={type.name}
+                                    pattern={this.props.pattern}
+                                    theme={this.props.theme}
+                            />
+                </label>;
         }
     }
 

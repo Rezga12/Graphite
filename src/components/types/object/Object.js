@@ -1,5 +1,4 @@
 import React from "react";
-import colorTheme from "../../../CodeColorScheme.module.css"
 import Field from "../../field/Field";
 import {TypeKind} from "graphql";
 import TypeLabel from "../../typeLabel/TypeLabel";
@@ -8,15 +7,17 @@ import Marker from "../../marker/Marker";
 
 export default class ObjectType extends React.Component{
     render(){
+        const colorTheme = this.props.theme;
+
         const fields = this.props.model.fields.map(field =>
-            <Field model={field} key={field.name} control = {this.props.control} pattern={this.props.pattern}/>
+            <Field model={field} key={field.name} control = {this.props.control} pattern={this.props.pattern} theme={this.props.theme}/>
         );
 
         let interfaces = []
         if(this.props.model.interfaces !== null){
             interfaces = this.props.model.interfaces.map((_interface,i) =>
                 <label key={_interface.name}>
-                    <TypeLabel type={_interface} control={this.props.control} pattern={this.props.pattern}/>
+                    <TypeLabel type={_interface} control={this.props.control} pattern={this.props.pattern} theme={this.props.theme}/>
                     {i === this.props.model.interfaces.length - 1 ? '' : ', '}
                 </label>)
         }
@@ -26,9 +27,18 @@ export default class ObjectType extends React.Component{
 
         return (!render ? null : <div className={colorTheme.typeContainer}>
                     <div>
-                        <label className={colorTheme.keyword}><Marker word={type} pattern={this.props.pattern}/> </label>
-                        <Marker word={this.props.model.name} pattern={this.props.pattern}/>
-                        {interfaces.length > 0 && <label className={colorTheme.keyword}><Marker word={' implements '} pattern={this.props.pattern}/></label>}
+                        <label className={colorTheme.keyword}><Marker word={type}
+                                                                      pattern={this.props.pattern}
+                                                                      theme={this.props.theme}
+                        /> </label>
+                        <Marker word={this.props.model.name}
+                                pattern={this.props.pattern}
+                                theme={this.props.theme}
+                        />
+                        {interfaces.length > 0 && <label className={colorTheme.keyword}><Marker word={' implements '}
+                                                                                                pattern={this.props.pattern}
+                                                                                                theme={this.props.theme}
+                        /></label>}
                         {interfaces}
                         {' {'}
                     </div>

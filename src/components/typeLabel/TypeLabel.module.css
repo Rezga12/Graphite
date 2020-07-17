@@ -1,5 +1,5 @@
 .underline{
-    color: green;
+
 }
 
 .underline:hover{
@@ -8,6 +8,5 @@
 }
 
 .plain{
-    color: green;
     cursor: text;
 }
