@@ -23,9 +23,9 @@ export default class Enum extends React.Component{
                         <Marker word={this.props.model.name}
                                 pattern={this.props.pattern}
                                 theme={this.props.theme}
-                        /> {'{'}
+                        /> {(<span className={this.props.theme.punctuationMarks}>{' {'}</span>)}
                         {enumValues}
-                    {'}'}
+                        {(<span className={this.props.theme.punctuationMarks}>{'}'}</span>)}
                 </div>);
     }
 }

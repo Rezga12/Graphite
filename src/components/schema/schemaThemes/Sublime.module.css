@@ -1,15 +1,16 @@
 .keyword{
-    color: #fad905;
+    color: #f92672;
     font-style: italic;
 }
 
 .plainTextColor{
-    color: #fcfcfc;
+    color: #a6e22e;
 }
 
 .classFieldColor{
-    color: #d2dedc;
+    color: #a6e22e;
 }
+
 
 .typeField{
     margin-left: 30px;
@@ -21,7 +22,7 @@
 }
 
 .typeLabel{
-    color: #17b517;
+    color: #66d9ef;
 }
 
 .typeLabelHover:hover{
@@ -29,11 +30,11 @@
 }
 
 .enumField{
-    color: #8d2e02;
+    color: #ae81ff;
 }
 
 .paramName{
-    color: #a20c0c;
+    color: #fd971f;
 }
 
 .tab{
@@ -50,7 +51,9 @@
 
 .mainContainer{
     font-size: 15px;
-    background: #252b3b;
+    background: #282923;
+
+
 }
 
 .mainContainer::-webkit-scrollbar {
@@ -59,17 +62,18 @@
 
 /* Track */
 .mainContainer::-webkit-scrollbar-track {
-    background: #1b475f;
-    border-radius: 5px;
+    background: #383934;
+    border-radius: 3px;
 }
 
 /* Handle */
 .mainContainer::-webkit-scrollbar-thumb {
-    background: rgb(19, 15, 102);
-    border-radius: 5px;
+    background: #888888;
+    border-radius: 3px;
 }
 
 /* Handle on hover */
 .mainContainer::-webkit-scrollbar-thumb:hover {
-    background: rgba(19, 15, 102, 0.78);
+    background: #888888;
+    border-radius: 3px;
 }

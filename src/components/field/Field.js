@@ -8,13 +8,13 @@ export default class Field extends React.Component{
 
         const colorTheme = this.props.theme;
 
-        const argObjectsOneLine = args.map((arg, i) => <label key={arg.name}>
-            <label className={colorTheme.paramName}>{arg.name}</label>:
+        const argObjectsOneLine = args.map((arg, i) => <label key={arg.name} className={this.props.theme.punctuationMarks}>
+            <label className={colorTheme.paramName}>{arg.name}</label>{': '}
             <TypeLabel type={this.props.model.type} control={this.props.control} pattern={this.props.pattern} theme={this.props.theme}/>{i < (args.length-1) && ', '}
         </label>);
 
-        const argObjectsMultipleLines = args.map((arg, i) => <label key={arg.name} className={colorTheme.tab}>
-            <label className={colorTheme.paramName}>{arg.name}</label>:
+        const argObjectsMultipleLines = args.map((arg, i) => <label key={arg.name} className={colorTheme.tab + " " + this.props.theme.punctuationMarks}>
+            <label className={colorTheme.paramName}>{arg.name}</label>{': '}
             <TypeLabel type={this.props.model.type} control={this.props.control} pattern={this.props.pattern} theme={this.props.theme}/>{i < (args.length-1) && ', '} <br/>
         </label>);
         let result;
@@ -51,7 +51,7 @@ export default class Field extends React.Component{
                         />
                     </label>
 
-                            {this.getArgs(this.props.model.args)}:
+            {this.getArgs(this.props.model.args)}<span className={colorTheme.punctuationMarks}>{': '}</span>
                     <TypeLabel type={this.props.model.type} control={this.props.control} pattern={this.props.pattern} theme={this.props.theme}/>
                 </div>);
     }

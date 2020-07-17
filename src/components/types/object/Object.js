@@ -40,10 +40,10 @@ export default class ObjectType extends React.Component{
                                                                                                 theme={this.props.theme}
                         /></label>}
                         {interfaces}
-                        {' {'}
+                        {(<span className={this.props.theme.punctuationMarks}>{' {'}</span>)}
                     </div>
                     {fields}
-                    <div>{'}'}</div>
+                    <div>{(<span className={this.props.theme.punctuationMarks}>{'}'}</span>)}</div>
                 </div>);
     }
 }

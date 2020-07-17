@@ -11,7 +11,7 @@ export default class Union extends React.Component{
         const possibleTypes = this.props.model.possibleTypes.map((type, i) =>
             <label key={type.name}>
                 <TypeLabel type={type} control={this.props.control} pattern={this.props.pattern} theme={this.props.theme}/>
-                {i === this.props.model.possibleTypes.length - 1 ? '' : ' | '}
+                {i === this.props.model.possibleTypes.length - 1 ? '' : (<span className={this.props.theme.punctuationMarks}>{' | '}</span>)}
             </label>
         );
 
@@ -24,7 +24,7 @@ export default class Union extends React.Component{
                                                   pattern={this.props.pattern}
                                                   theme={this.props.theme}
                     /></label>
-                    {' = '}
+            {(<span className={this.props.theme.punctuationMarks}>{' = '}</span>)}
                     {possibleTypes}
                 </div>);
     }

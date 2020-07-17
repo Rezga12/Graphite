@@ -24,9 +24,9 @@ export default class TypeLabel extends React.Component{
 
         switch (type.kind) {
             case TypeKind.NON_NULL:
-                return (<label className={styles.plain}>{this.getTypeName(type.ofType)}!</label>);
+                return (<label className={this.props.theme.punctuationMarks}>{this.getTypeName(type.ofType)}!</label>);
             case TypeKind.LIST:
-                return (<label className={styles.plain}>[{this.getTypeName(type.ofType)}]</label>);
+                return (<label className={this.props.theme.punctuationMarks}>[{this.getTypeName(type.ofType)}]</label>);
             default:
                 this.name = type.name;
                 return <label className={controlClass + " " + this.props.theme.typeLabel} onClick={this.handleClick}>

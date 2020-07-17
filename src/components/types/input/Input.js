@@ -17,7 +17,7 @@ export default class Input extends React.Component{
                 <label><Marker word={field.name}
                                pattern={this.props.pattern}
                                theme={this.props.theme}
-                /></label>{': '}
+                /></label><span className={colorTheme}>{': '}</span>
                 <TypeLabel type={field.type} control={this.props.control} pattern={this.props.pattern} theme={this.props.theme}/>
             </div>);
 
@@ -31,10 +31,10 @@ export default class Input extends React.Component{
                         </label> <Marker word={this.props.model.name}
                                          pattern={this.props.pattern}
                                          theme={this.props.theme}
-                    />{' {'}
+                    />{(<span className={this.props.theme.punctuationMarks}>{' {'}</span>)}
                     </div>
                     <div>{fields}</div>
-                    <div>{'}'}</div>
+                    <div>{(<span className={this.props.theme.punctuationMarks}>{'{'}</span>)}</div>
                 </div>);
     }
 }

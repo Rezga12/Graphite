@@ -49,7 +49,7 @@ export default class Schema extends React.Component{
         // You can Add Themes Here
         this.themes = {
             "Classic": classic,
-            "Dark": dark,
+            "Dark": dark
         }
     }
 

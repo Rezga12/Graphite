@@ -8,7 +8,7 @@
 }
 
 .classFieldColor{
-    color: #e5efef;
+    color: #404651;
 }
 
 
@@ -53,17 +53,21 @@
     width: 10px;
 }
 
+.punctuationMarks{
+    color: #030303;
+}
+
 /* Track */
 .mainContainer::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #383934;
 }
 
 /* Handle */
 .mainContainer::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #263238;
 }
 
 /* Handle on hover */
 .mainContainer::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #888888;
 }
