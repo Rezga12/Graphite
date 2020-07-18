@@ -1,0 +1,81 @@
+.container{
+    border: 1px solid #b1b1b1;
+    border-radius: 3px;
+
+    font-family: 'Comfortaa', cursive;
+
+    position: relative;
+    cursor: pointer;
+}
+
+.titleContainer{
+    display: flex;
+
+    height: 100%;
+}
+
+.menuItemTitleContainer{
+    height: 40px;
+    display: flex;
+
+    cursor: pointer;
+}
+
+.menuItemTitleContainer:hover{
+    background: #eaeaea;
+}
+
+.menuContainer{
+    border: 1px solid #b1b1b1;
+    border-radius: 3px;
+
+    max-height: 300px;
+    width: 100%;
+
+    position: absolute;
+
+    background: white;
+
+    box-sizing: border-box;
+
+    overflow-y: scroll;
+}
+
+.menuContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.selectedIcon{
+    height: 30px;
+}
+
+.selectedIconContainer{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 10px;
+}
+
+.selectedText{
+    flex: 1;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 16px;
+
+    margin-left: 20px;
+}
+
+.iconColor{
+    fill: rgb(72, 70, 70);
+}
+
+.svgContainer{
+}
+
+.svg{
+    height: 100%;
+}

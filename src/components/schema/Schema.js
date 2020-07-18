@@ -89,13 +89,13 @@ export default class Schema extends React.Component{
                 theme: this.themes[this.state.schemaTheme]
         }, null));
 
-        const themeOptions = Object.keys(this.themes).map(name => <option key={name} selected={name === this.state.schemaTheme}>{name}</option>);
+        const themeOptions = Object.keys(this.themes).map(name => <option key={name}>{name}</option>);
 
         return (<div className={this.themes[this.state.schemaTheme].plainTextColor + " " + styles.container + " " + this.themes[this.state.schemaTheme].mainContainer}>
                     <div className={styles.panel}>
                         <div className={styles.panelHeader}>
                             <input type={'text'} onChange={this.searchInputChangeHandler} value={this.state.pattern} placeholder={'Search'}/>
-                            <select onChange={this.onThemeChange}>
+                            <select onChange={this.onThemeChange} value={this.state.schemaTheme}>
                                 {themeOptions}
                             </select>
                         </div>
