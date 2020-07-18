@@ -7,10 +7,12 @@ import Union from "../types/union/Union";
 import Enum from "../types/enum/Enum";
 import Input from "../types/input/Input";
 
+
 // You can import themes here:
 
 import classic from './schemaThemes/Classic.module.css'
 import dark from './schemaThemes/Dark.module.css'
+import sublime from './schemaThemes/Sublime.module.css'
 
 export default class Schema extends React.Component{
 
@@ -49,7 +51,8 @@ export default class Schema extends React.Component{
         // You can Add Themes Here
         this.themes = {
             "Classic": classic,
-            "Dark": dark
+            "Dark": dark,
+            "Sublime": sublime
         }
     }
 
