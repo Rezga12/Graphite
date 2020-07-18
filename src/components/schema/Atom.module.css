@@ -1,0 +1,76 @@
+.keyword{
+    color: #10b1fe;
+    font-style: italic;
+}
+
+.plainTextColor{
+    color: #90b061
+}
+
+.classFieldColor{
+    color: #90b061
+}
+
+
+.typeField{
+    margin-left: 30px;
+}
+
+.typeContainer{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.typeLabel{
+    color: #be8a59
+}
+
+.typeLabelHover:hover{
+    text-decoration: underline;
+}
+
+.enumField{
+    color: #9da39d
+}
+
+.paramName{
+    color: #c16266
+}
+
+.tab{
+    margin-left: 1.5em;
+}
+
+.marker{
+    background-color: rgba(237, 255, 192, 0.75);
+}
+
+.mainContainer{
+    font-size: 15px;
+    background: #292d34;
+
+    font-family: 'Fira Code', monospace;
+}
+
+.mainContainer::-webkit-scrollbar {
+    width: 10px;
+}
+
+.punctuationMarks{
+    color: #e7e0e0;
+}
+
+/* Track */
+.mainContainer::-webkit-scrollbar-track {
+    background: #292d34;
+}
+
+/* Handle */
+.mainContainer::-webkit-scrollbar-thumb {
+    background: #5e6977;
+}
+
+/* Handle on hover */
+.mainContainer::-webkit-scrollbar-thumb:hover {
+    background: #5e6977;
+}

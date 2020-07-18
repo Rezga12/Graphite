@@ -11,6 +11,7 @@ import Input from "../types/input/Input";
 
 import classic from './schemaThemes/Classic.module.css'
 import dark from './schemaThemes/Dark.module.css'
+import atom from './schemaThemes/Atom.module.css'
 
 export default class Schema extends React.Component{
 
@@ -50,6 +51,7 @@ export default class Schema extends React.Component{
         this.themes = {
             "Classic": classic,
             "Dark": dark
+            "Atom": atom
         }
     }
 
