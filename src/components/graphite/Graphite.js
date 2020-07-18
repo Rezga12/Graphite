@@ -3,7 +3,8 @@ import styles from "./Graphite.module.css"
 import  {introspectionQuery} from "../../utils/introspection/introspection";
 import Schema from "../schema/Schema";
 import QueryConsole from "../queryConsole/QueryConsole";
-import SchemaIcon from "../../assets/icons/schema.png"
+import apis from '../../utils/apis.json'
+import Dropdown from "../dropdown/Dropdown";
 
 export default class Graphite extends React.Component{
     
@@ -28,14 +29,16 @@ export default class Graphite extends React.Component{
 
         this.addEventListeners();
         this.queryWindowRef = React.createRef();
+
+        console.log(apis);
     }
 
     componentDidMount() {
-        this.fetchSchema({});
+        this.fetchSchema(this.state.addressValue);
     }
 
-    fetchSchema = (event) => {
-        fetch(this.state.addressValue, {
+    fetchSchema = (addressValue) => {
+        fetch(addressValue, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -100,12 +103,20 @@ export default class Graphite extends React.Component{
         });
     };
 
+    handleChange = url => {
+        this.fetchSchema(url);
+    }
+
     render() {
         return (<div className={styles.container}>
                     <div className={styles.ideContainer} ref={this.queryWindowRef} >
                         <div className={styles.addressContainer}>
-                            <input type={'text'} value={this.state.addressValue} onChange={this.inputChanged}/>
-                            <button onClick={this.fetchSchema}>Fetch</button>
+                            <div>
+                                <input type={'text'} value={this.state.addressValue} onChange={this.inputChanged}/>
+                                <button onClick={this.fetchSchema}>Fetch</button>
+                            </div>
+
+                            <Dropdown className={styles.dropDown} apis={apis} changeHandler={this.handleChange}/>
                         </div>
 
                         <div className={styles.queryContainer}>

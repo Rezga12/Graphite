@@ -7,11 +7,13 @@ import Union from "../types/union/Union";
 import Enum from "../types/enum/Enum";
 import Input from "../types/input/Input";
 
+
 // You can import themes here:
 
 import classic from './schemaThemes/Classic.module.css'
 import dark from './schemaThemes/Dark.module.css'
 import atom from './schemaThemes/Atom.module.css'
+import sublime from './schemaThemes/Sublime.module.css'
 
 export default class Schema extends React.Component{
 
@@ -50,8 +52,9 @@ export default class Schema extends React.Component{
         // You can Add Themes Here
         this.themes = {
             "Classic": classic,
-            "Dark": dark
-            "Atom": atom
+            "Dark": dark,
+            "Atom": atom,
+            "Sublime": sublime
         }
     }
 
@@ -91,13 +94,13 @@ export default class Schema extends React.Component{
                 theme: this.themes[this.state.schemaTheme]
         }, null));
 
-        const themeOptions = Object.keys(this.themes).map(name => <option key={name} selected={name === this.state.schemaTheme}>{name}</option>);
+        const themeOptions = Object.keys(this.themes).map(name => <option key={name}>{name}</option>);
 
         return (<div className={this.themes[this.state.schemaTheme].plainTextColor + " " + styles.container + " " + this.themes[this.state.schemaTheme].mainContainer}>
                     <div className={styles.panel}>
                         <div className={styles.panelHeader}>
                             <input type={'text'} onChange={this.searchInputChangeHandler} value={this.state.pattern} placeholder={'Search'}/>
-                            <select onChange={this.onThemeChange}>
+                            <select onChange={this.onThemeChange} value={this.state.schemaTheme}>
                                 {themeOptions}
                             </select>
                         </div>
