@@ -38,6 +38,10 @@ export default class QueryField extends React.Component{
     }
 
     renderFields(model){
+        if(!model){
+            return <div className={styles.red}>This Option Is Not AAvailable</div>
+        }
+
         return model.fields.map(field => <DynamicParameter key={'q' + field.name}
                                                            model={field}
                                                            typeDict={this.props.typeDict}
