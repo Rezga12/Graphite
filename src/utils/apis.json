@@ -1,437 +1,151 @@
 [
   {
-    "url": "https://graphql.brandfolder.com/graphql",
+    "url": "https://airbnb.now.sh",
     "info": {
-      "title": "Brandfolder",
-      "description": "Digital asset management platform",
-      "logo": {
-        "url": "http://static1.squarespace.com/static/575b2a042b8dde1b3489f9df/t/579a4575e6f2e1648e660ef4/1476912636734/%3Fformat=1500w",
-        "backgroundColor": "#252c2f"
-      }
+      "title": "Airbnb Clone",
+      "description": "The foundation for an application similar to AirBnB."
     },
     "externalDocs": [
       {
         "description": "GraphiQL",
-        "url": "https://graphql.brandfolder.com/"
-      },
-      {
-        "description": "Docs",
-        "url": "https://github.com/brandfolder/graphqlify"
-      }
-    ]
-  },
-  {
-    "url": "https://graphql.buildkite.com/v1",
-    "info": {
-      "title": "Buildkite",
-      "description": "Continuous integration and deployments",
-      "logo": {
-        "url": "https://avatars1.githubusercontent.com/oa/46194?v=3&u=b9d8fd94744e21ea26a7302cab5931d9cb25e897&s=800"
-      }
-    },
-    "security": [
-      {
-        "title": "API Key",
-        "description": "",
-        "type": "apiKey",
-        "prefix": "Bearer ",
-        "name": "Authorization",
-        "in": "header"
-      }
-    ],
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "https://graphql.buildkite.com/"
-      },
-      {
-        "description": "Docs",
-        "url": "https://building.buildkite.com/tutorial-getting-started-with-graphql-queries-and-mutations-11211dfe5d64#.7uhjusw1q"
-      }
-    ]
-  },
-  {
-    "url": "https://portal.ehri-project.eu/api/graphql",
-    "info": {
-      "title": "EHRI",
-      "description": "Holocaust-related archival materials",
-      "logo": {
-        "url": "https://www.ehri-project.eu/sites/all/themes/zenehri/images/logo.png"
-      }
-    },
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "https://portal.ehri-project.eu/api/graphql/ui"
-      },
-      {
-        "description": "Docs",
-        "url": "https://portal.ehri-project.eu/api/graphql"
-      }
-    ]
-  },
-  {
-    "url": "https://graphql.communitygraph.org/graphql/",
-    "info": {
-      "title": "GraphQL Community Graph",
-      "description": "This is an Graph Database full of activity of the GraphQL community, including Twitter, StackOverflow, GitHub, Meetups, Slack."
-    },
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "http://graphql.communitygraph.org/graphiql/"
+        "url": "https://airbnb.now.sh"
       },
       {
         "description": "Repo",
-        "url": "https://github.com/neo4j-graphql/graphql-community"
+        "url": "https://github.com/graphcool/graphql-server-example"
       }
     ]
   },
   {
-    "url": "https://api.graphql-europe.org/",
+    "url": "https://graphql-pokemon.now.sh",
     "info": {
-      "title": "GraphQL Europe",
-      "description": "Europe’s first GraphQL conference",
+      "title": "GraphQL Pokémon",
+      "description": "Get information of a Pokémon with GraphQL!",
       "logo": {
-        "url": "https://graphql-europe.org/assets/image/logo.svg"
+        "url": "https://github.com/lucasbento/graphql-pokemon/raw/master/content/logo.png"
       }
     },
     "externalDocs": [
       {
         "description": "GraphiQL",
-        "url": "https://api.graphql-europe.org/"
-      }
-    ]
-  },
-  {
-    "url": "http://gdom.graphene-python.org/graphql",
-    "info": {
-      "title": "Gdom",
-      "description": "DOM Traversing and Scraping using GraphQL"
-    },
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "http://gdom.graphene-python.org/graphql"
+        "url": "https://graphql-pokemon.now.sh"
       },
       {
         "description": "Repo",
-        "url": "https://github.com/syrusakbary/gdom"
+        "url": "https://github.com/lucasbento/graphql-pokemon"
       }
     ]
   },
   {
-    "url": "https://api.github.com/graphql",
-    "headers": {
-      "User-Agent": "Agent"
-    },
-    "security": [
-      {
-        "title": "API Key",
-        "description": "",
-        "type": "apiKey",
-        "prefix": "Bearer ",
-        "name": "Authorization",
-        "in": "header"
-      }
-    ],
+    "url": "https://react-relay-pokemon.now.sh",
     "info": {
-      "title": "GitHub",
-      "description": "Web-based Git repository hosting service",
+      "title": "GraphQL Pokémon Relay",
+      "description": "Get information of a Pokémon with GraphQL!",
       "logo": {
-        "url": "https://api.apis.guru/v2/cache/logo/http_assets-cdn.github.com_images_modules_logos_page_GitHub-Mark.png"
+        "url": "https://github.com/lucasbento/react-relay-pokemon/raw/master/content/logo.png"
       }
     },
     "externalDocs": [
       {
         "description": "GraphiQL",
-        "url": "https://developer.github.com/v4/explorer/"
-      },
-      {
-        "description": "Docs",
-        "url": "https://developer.github.com/v4/"
-      }
-    ]
-  },
-  {
-    "url": "https://hivdb.stanford.edu/graphql",
-    "info": {
-      "title": "HIVDB",
-      "description": "A curated database to represent, store and analyze HIV drug resistance data"
-    },
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "https://hivdb.stanford.edu/page/graphiql/"
-      },
-      {
-        "description": "Docs",
-        "url": "https://hivdb.stanford.edu/page/webservice/"
-      }
-    ]
-  },
-  {
-    "url": "https://api.hollowverse.com/graphql",
-    "info": {
-      "title": "Hollowverse",
-      "description": "The religions and political views of the influentials."
-    },
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "https://api.hollowverse.com/playground"
-      },
-      {
-        "description": "Docs",
-        "url": "https://github.com/hollowverse/hollowverse/wiki/API-Development"
+        "url": "https://react-relay-pokemon.now.sh"
       },
       {
         "description": "Repo",
-        "url": "https://github.com/hollowverse/api"
+        "url": "https://github.com/lucasbento/react-relay-pokemon"
       }
     ]
   },
   {
-    "url": "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql",
+    "url": "https://graphql-compose.herokuapp.com/northwind",
     "info": {
-      "title": "Digitransit HSL",
-      "description": "Transit routes and realtime schedules from Helsinki Regional Transport Authority, Finland",
-      "logo": {
-        "url": "http://dev.hsl.fi/logo.png",
-        "backgroundColor": "#007ac9"
-      }
+      "title": "MongoDB Northwind demo",
+      "description": "Demo App build on top of graphql-compose and mongoose"
     },
     "externalDocs": [
       {
         "description": "GraphiQL",
-        "url": "http://dev.hsl.fi/graphql/console/"
-      },
-      {
-        "description": "Docs",
-        "url": "https://digitransit.fi/en/developers/services-and-apis/1-routing-api/"
+        "url": "https://graphql-compose.herokuapp.com/northwind/"
       },
       {
         "description": "Repo",
-        "url": "https://github.com/HSLdevcom/OpenTripPlanner"
+        "url": "https://github.com/nodkz/graphql-compose"
       }
     ]
   },
   {
-    "url": "https://api.melody.sh/graphql",
+    "url": "https://todo-mongo-graphql-server.herokuapp.com",
     "info": {
-      "title": "melodyRepo",
-      "description": "Fast and reliable dependency manager for Go"
+      "title": "MongoDB TODO-List",
+      "description": "TODO List using GraphQL and MongoDb"
     },
     "externalDocs": [
       {
         "description": "GraphiQL",
-        "url": "https://melody.sh/play/"
+        "url": "https://todo-mongo-graphql-server.herokuapp.com/"
       },
       {
         "description": "Docs",
-        "url": "https://melody.sh/docs/api"
-      }
-    ]
-  },
-  {
-    "url": "https://api.react-finland.fi/graphql",
-    "info": {
-      "title": "React Finland",
-      "description": "React Finland API is built with conferences and meetups in mind"
-    },
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "https://api.react-finland.fi/graphql"
+        "url": "https://www.compose.com/articles/using-graphql-with-mongodb/"
       },
       {
         "description": "Repo",
-        "url": "https://github.com/ReactFinland/graphql-api"
+        "url": "https://github.com/igorlima/todo-mongo-graphql-server"
       }
     ]
   },
   {
-    "url": "http://graphql-demo.azurewebsites.net/",
+    "url": "https://spotify-graphql-server.herokuapp.com/graphql",
     "info": {
-      "title": "Microsoft Graph (DEMO)",
-      "description": "Connect to the data that drives productivity – mail, calendar, contacts, documents, directory, devices, and more."
+      "title": "Spotify GraphQL Server",
+      "description": "This demonstrates how to build a GraphQL server which fetches data from an external API (Spotify)"
     },
     "externalDocs": [
       {
         "description": "GraphiQL",
-        "url": "https://graphql-demo.azurewebsites.net/"
+        "url": "https://spotify-graphql-server.herokuapp.com/graphql"
+      },
+      {
+        "description": "Docs",
+        "url": "https://blog.codecentric.de/en/2017/01/lets-build-spotify-graphql-server"
       },
       {
         "description": "Repo",
-        "url": "https://github.com/microsoftgraph/graphql-demo"
+        "url": "https://github.com/lowsky/spotify-graphql-server"
       }
     ]
   },
   {
-    "url": "https://graphql.myshopify.com/api/graphql.json",
-    "headers": {
-      "Content-Type": "application/graphql"
-    },
-    "security": [
-      {
-        "title": "API Key",
-        "description": "Storefront Access token",
-        "type": "apiKey",
-        "name": "X-Shopify-Storefront-Access-Token",
-        "in": "header"
-      }
-    ],
+    "url": "https://jwerle.github.io/three.graphql",
     "info": {
-      "title": "Shopify Storefront",
-      "description": "The Storefront API gives you full creative control to build customized purchasing experiences for your customers."
+      "title": "Three.js demo",
+      "description": "Declare a Three.js program with GraphQL"
     },
     "externalDocs": [
       {
         "description": "GraphiQL",
-        "url": "https://help.shopify.com/api/storefront-api/graphql-explorer"
-      },
-      {
-        "description": "Docs",
-        "url": "https://help.shopify.com/api/storefront-api"
-      },
-      {
-        "description": "Examples",
-        "url": "https://github.com/Shopify/storefront-api-examples"
-      }
-    ]
-  },
-  {
-    "url": "https://api.yelp.com/v3/graphql",
-    "info": {
-      "title": "Yelp",
-      "description": "User Reviews and Recommendations of Top Restaurants, Shopping, Nightlife, Entertainment, Services and More",
-      "logo": {
-        "url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png"
-      }
-    },
-    "security": [
-      {
-        "title": "API Key",
-        "description": "Same as for regular API",
-        "type": "apiKey",
-        "prefix": "Bearer ",
-        "name": "Authorization",
-        "in": "header"
-      }
-    ],
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "https://www.yelp.com/developers/graphiql"
-      },
-      {
-        "description": "Docs",
-        "url": "https://www.yelp.com/developers/graphql/guides/intro"
-      }
-    ]
-  },
-  {
-    "url": "http://api.catalysis-hub.org/graphql",
-    "info": {
-      "title": "Catalysis-Hub.Org",
-      "description": "http://api.catalysis-hub.org/graphql",
-      "logo": {
-        "url": "https://www.catalysis-hub.org/static/logo.png"
-      }
-    },
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "http://api.catalysis-hub.org/graphql"
-      },
-      {
-        "description": "Docs",
-        "url": "http://docs.catalysis-hub.org/en/latest/tutorials/index.html#graphql"
+        "url": "https://jwerle.github.io/three.graphql/"
       },
       {
         "description": "Repo",
-        "url": "https://github.com/SUNCAT-Center/CatalysisHubBackend"
+        "url": "https://github.com/jwerle/three.graphql"
       }
     ]
   },
   {
-    "url": "https://countries.trevorblades.com",
+    "url": "https://directions-graphql.herokuapp.com/graphql",
     "info": {
-      "title": "Countries",
-      "description": "Information about countries, continents, and languages"
-    },
-    "externalDocs": [
-      {
-        "description": "GraphQL Playground",
-        "url": "https://countries.trevorblades.com"
-      },
-      {
-        "description": "Repo",
-        "url": "https://github.com/trevorblades/countries"
-      }
-    ]
-  },
-  {
-    "url": "http://api.deutschebahn.com/1bahnql/",
-    "info": {
-      "title": "Deutsche Bahn",
-      "description": "Infrastructure Data, like realtime facility status, stations, timetables and more",
-      "logo": {
-        "url": "https://raw.githubusercontent.com/dbsystel/1BahnQL/develop/logo.svg"
-      }
-    },
-    "security": [
-      {
-        "title": "API Key",
-        "description": "Subscripe to 1BahnQL in the developer portal",
-        "type": "apiKey",
-        "prefix": "Bearer ",
-        "name": "Authorization",
-        "in": "header"
-      }
-    ],
-    "externalDocs": [
-      {
-        "description": "Repo",
-        "url": "https://github.com/dbsystel/1BahnQL"
-      },
-      {
-        "description": "Try",
-        "url": "https://developer.deutschebahn.com/free1bahnql/graphql"
-      }
-    ]
-  },
-  {
-    "url": "https://api.pipefy.com/graphql",
-    "info": {
-      "title": "Pipefy GraphQL API",
-      "description": "The operations excellence platform."
+      "title": "Google directions API",
+      "description": "GraphQL wrapper for google directions API"
     },
     "externalDocs": [
       {
         "description": "GraphiQL",
-        "url": "https://app.pipefy.com/graphiql"
+        "url": "https://directions-graphql.herokuapp.com/graphql"
       },
       {
-        "description": "Docs",
-        "url": "https://developers.pipefy.com"
-      }
-    ]
-  },
-  {
-    "url": "https://api.everbase.co/graphql",
-    "info": {
-      "title": "Everbase",
-      "description": "Countries, cities, exchange rates, geolocation and a lot more."
-    },
-    "externalDocs": [
-      {
-        "description": "GraphiQL",
-        "url": "https://www.everbase.co/editor"
-      },
-      {
-        "description": "Docs",
-        "url": "https://www.everbase.co/docs"
+        "description": "Repo",
+        "url": "https://github.com/Arjun-sna/directions_graphql/"
       }
     ]
   }

@@ -121,6 +121,7 @@ export default class InputParameter extends React.Component{
             model = model.ofType
         }
         switch (model.name) {
+            case "ID":
             case "Int":
             case "Integer":
             case "Float":

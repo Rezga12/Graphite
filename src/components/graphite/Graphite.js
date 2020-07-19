@@ -3,7 +3,10 @@ import styles from "./Graphite.module.css"
 import  {introspectionQuery} from "../../utils/introspection/introspection";
 import Schema from "../schema/Schema";
 import QueryConsole from "../queryConsole/QueryConsole";
+
+// this list is taken from https://github.com/APIs-guru/graphql-apis/blob/master/demos.json
 import apis from '../../utils/apis.json'
+
 import Dropdown from "../dropdown/Dropdown";
 
 export default class Graphite extends React.Component{
@@ -25,12 +28,11 @@ export default class Graphite extends React.Component{
             schemaVisibility: false,
             prevX: undefined,
             schemaWidth:300,
+            fetchAddressValue: 'http://localhost:5000/graphql',
         };
 
         this.addEventListeners();
         this.queryWindowRef = React.createRef();
-
-        console.log(apis);
     }
 
     componentDidMount() {
@@ -60,6 +62,7 @@ export default class Graphite extends React.Component{
                 schemaModel: obj.data.__schema,
                 typeDict: dict,
                 connectionEstablished: true,
+                fetchAddressValue: addressValue
             })
         }).catch(error => {
             console.log(error);
@@ -68,7 +71,8 @@ export default class Graphite extends React.Component{
 
     sendQuery = query => {
         this.setState({loading: true})
-        fetch(this.state.addressValue, {
+        console.log(this.state.fetchAddressValue);
+        fetch(this.state.fetchAddressValue, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
